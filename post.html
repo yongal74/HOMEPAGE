@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>장우경 | AI 트렌드 리포트</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Inter:wght@300;400;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        /* 블로그 포스트 전용 스타일 */
+        .post-container {
+            max-width: 800px;
+            margin: 120px auto 100px;
+            padding: 0 20px;
+        }
+
+        .post-header {
+            margin-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 30px;
+        }
+
+        .post-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .post-meta {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            color: var(--text-2);
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+        }
+
+        .post-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-1);
+        }
+
+        .post-content h3 {
+            font-size: 1.4rem;
+            color: white;
+            margin: 40px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .post-content ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .post-content li {
+            margin-bottom: 16px;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .post-content li::before {
+            content: "•";
+            color: var(--cyan);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .post-actions {
+            margin-top: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-2);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .btn-back:hover {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav id="navbar">
+        <div class="nav-inner">
+            <a href="/index.html" class="logo">장우경<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="/index.html#blog">블로그 목록으로 돌아가기</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- POST CONTENT -->
+    <main class="post-container" id="post-container">
+        <div style="text-align:center; padding: 100px 0;">
+            <p style="color:var(--text-3);">게시물을 불러오는 중입니다...</p>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-inner">
+            <p style="text-align:center; width:100%; color:var(--text-3);">&copy; 2026 Wookyung Chang. All rights
+                reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const postId = urlParams.get('id');
+            const container = document.getElementById('post-container');
+
+            if (!postId) {
+                container.innerHTML = '<div style="text-align:center; padding: 100px 0;"><h3>게시물을 찾을 수 없습니다.</h3><a href="/index.html#blog" class="btn-primary" style="margin-top:20px;">목록으로 돌아가기</a></div>';
+                return;
+            }
+
+            try {
+                const res = await fetch(`data/content.json?t=${new Date().getTime()}`);
+                if (!res.ok) throw new Error('Data fetch failed');
+                const data = await res.json();
+
+                const post = data.blogs.find(b => b.id === postId);
+
+                if (!post) {
+                    container.innerHTML = '<div style="text-align:center; padding: 100px 0;"><h3>삭제되었거나 존재하지 않는 게시물입니다.</h3><a href="/index.html#blog" class="btn-primary" style="margin-top:20px;">목록으로 돌아가기</a></div>';
+                    return;
+                }
+
+                // Tags formatting
+                let tagsHtml = '';
+                if (post._tags || post.categoryLabel) {
+                    let tags = post._tags || post.categoryLabel.split('|').map(t => t.trim());
+                    if (tags.length > 0) {
+                        tagsHtml = `<div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px;">` +
+                            tags.map(t => `<span style="background:rgba(45,212,191,0.1); color:var(--cyan); font-size:0.8rem; padding:6px 12px; border-radius:20px; font-weight:600;">#${t}</span>`).join('') +
+                            `</div>`;
+                    }
+                }
+
+                container.innerHTML = `
+          <article class="fade-in">
+            <header class="post-header">
+              ${tagsHtml}
+              <h1 class="post-title">${post.title}</h1>
+              <div class="post-meta">
+                <span>🗓️ ${post.date}</span>
+                <span>👤 장우경 AI Research</span>
+              </div>
+            </header>
+            
+            <div class="post-content">
+              ${post.content || '<p>' + post.summary + '</p>'}
+            </div>
+            
+            <div class="post-actions">
+              <a href="/index.html#blog" class="btn-back">← 전체 목록으로</a>
+              ${post.original_link ? `<a href="${post.original_link}" target="_blank" class="btn-primary" style="padding:10px 24px; font-size:0.9rem;">원문(영어) 보러가기 👉</a>` : ''}
+            </div>
+          </article>
+        `;
+            } catch (err) {
+                console.error(err);
+                container.innerHTML = '<div style="text-align:center; padding: 100px 0;"><h3>데이터를 불러오는 중 오류가 발생했습니다.</h3><a href="/index.html#blog" class="btn-primary" style="margin-top:20px;">목록으로 돌아가기</a></div>';
+            }
+        });
+    </script>
+</body>
+
+</html>
