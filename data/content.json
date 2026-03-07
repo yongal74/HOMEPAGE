@@ -187,15 +187,6 @@
             "original_link": "https://www.youtube.com/watch?v=2AWn3ikNwHA"
         },
         {
-            "id": "post-b82a02e5",
-            "category": "NEWS",
-            "categoryLabel": "AI|사회",
-            "title": "AI 대체에 대한 감정이 악화되고 있습니다.",
-            "summary": "AI 기술의 발전에 따라 대체에 대한 우려가 커지고 있습니다. 이는 노동 시장과 사회 전반에 걸쳐 영향을 미치고 있으며, 이에 대한 논의가 필요합니다. AI의 역할과 인간의 일자리 보호 간의 균형을 찾는 것이 중요합니다.",
-            "date": "2026.03.07",
-            "link": "https://seekingalpha.com/article/4879794-sentiment-sours-on-ai-substitution?source=feed_all_articles"
-        },
-        {
             "id": "post-9ee27df6",
             "category": "NEWS",
             "categoryLabel": "테크|AI",
@@ -221,33 +212,6 @@
             "summary": "2025년, 각 주에서는 AI의 거버넌스와 사용 방식에 대한 중요한 진전을 이루었습니다. 이 영상에서는 이러한 변화와 향후 계획을 논의합니다.",
             "date": "2026.03.05",
             "link": "https://www.youtube.com/watch?v=ck58SuQ7q_o"
-        },
-        {
-            "id": "post-4bad77e4",
-            "category": "NEWS",
-            "categoryLabel": "테크|AI|혁신",
-            "title": "인간처럼 생각하는 AI (비밀 추론의 돌파구)",
-            "summary": "이 영상에서는 단순한 언어 모델이 아닌, 인간처럼 사고하는 AI의 혁신적인 세계를 소개합니다. AI가 어떻게 사고하고 의사결정을 내리는지를 탐구합니다.",
-            "date": "2026.03.07",
-            "link": "https://www.youtube.com/watch?v=kj4J9QW2K6I"
-        },
-        {
-            "id": "post-a2f22136",
-            "category": "NEWS",
-            "categoryLabel": "테크|AI|혁신",
-            "title": "모든 것을 변화시키는 AI 돌파구 (새로운 기능, 벤치마크 및 능력 설명)",
-            "summary": "OpenAI의 발전이 실제로 계산된 것인지, 아니면 무작정 시도하는 것인지에 대한 논의가 이루어집니다. AI의 새로운 기능과 성능에 대한 설명이 포함되어 있습니다.",
-            "date": "2026.03.07",
-            "link": "https://www.youtube.com/watch?v=OjzdmDwkWOs"
-        },
-        {
-            "id": "post-ca198d7a",
-            "category": "NEWS",
-            "categoryLabel": "테크|AI|혁신",
-            "title": "AI의 인간 기원",
-            "summary": "AI와 인간의 사고가 어떻게 연결되는지를 설명하는 60초 분량의 짧은 영상입니다. 평생 학습자와 학자들을 위한 AI의 매력을 탐구합니다.",
-            "date": "2026.03.07",
-            "link": "https://www.youtube.com/watch?v=01MQYF2Coy8"
         },
         {
             "id": "post-c39f3009",
@@ -277,24 +241,6 @@
             "link": "https://www.youtube.com/watch?v=vt_KNvNobvU"
         },
         {
-            "id": "post-15c8b4a8",
-            "category": "NEWS",
-            "categoryLabel": "주식시장",
-            "title": "미국-이란 전쟁이 인도 시장에 미치는 영향은?",
-            "summary": "영상 내용이 없어 구체적인 정보는 제공되지 않습니다. 그러나 주식 시장과 투자에 대한 논의가 이루어질 것으로 예상됩니다.",
-            "date": "2026.03.07",
-            "link": "https://www.youtube.com/watch?v=eiD2TmymLe4"
-        },
-        {
-            "id": "post-4676be3d",
-            "category": "TECH",
-            "categoryLabel": "테크",
-            "title": "단기 시장 업데이트 | 3월 6일 | 다우존스 | 미국 주식 시장",
-            "summary": "3월 6일 미국 주식 시장에 대한 간략한 업데이트를 제공합니다. 다우존스와 나스닥 지수의 최근 동향을 다루고 있습니다.",
-            "date": "2026.03.07",
-            "link": "https://www.youtube.com/watch?v=NrkYnljKtsQ"
-        },
-        {
             "id": "post-1645c143",
             "category": "NEWS",
             "categoryLabel": "테크|AI|혁신",
@@ -313,69 +259,6 @@
             "link": "https://www.youtube.com/watch?v=RvD69ZW1ngE"
         },
         {
-            "id": "post-34546aaa",
-            "category": "AI",
-            "categoryLabel": "AI",
-            "title": "Scaling intelligent automation without breaking live workflows",
-            "summary": "요약 실패 (API 오류)",
-            "date": "2026.03.07",
-            "link": "https://www.artificialintelligence-news.com/news/scaling-intelligent-automation-without-breaking-live-workflows/"
-        },
-        {
-            "id": "post-dfedb7a5",
-            "category": "FI",
-            "categoryLabel": "스테이블코인",
-            "title": "First US state-level stablecoin bill passes in Florida",
-            "summary": "요약 실패 (API 오류)",
-            "date": "2026.03.07",
-            "link": "https://www.theblock.co/post/392733/first-us-state-level-stablecoin-bill-passes-in-florida?utm_source=rss&utm_medium=rss"
-        },
-        {
-            "id": "post-cebd9977",
-            "category": "TECH",
-            "categoryLabel": "테크",
-            "title": "Google's new command-line tool can plug OpenClaw into your Workspace data",
-            "summary": "(자동 분석 미포함)",
-            "date": "2026.03.07",
-            "link": "https://arstechnica.com/ai/2026/03/googles-new-command-line-tool-can-plug-openclaw-into-your-workspace-data/"
-        },
-        {
-            "id": "post-83d35025",
-            "category": "AI",
-            "categoryLabel": "AI",
-            "title": "앤트로픽, '클로드' 기반 소프트웨어 마켓플레이스 공개",
-            "summary": "(자동 분석 미포함)",
-            "date": "2026.03.07",
-            "link": "https://www.aitimes.com/news/articleView.html?idxno=207663"
-        },
-        {
-            "id": "post-128308c0",
-            "category": "AI",
-            "categoryLabel": "AI",
-            "title": "오픈AI, 에이전트 보안 도구 '코덱스 시큐리티' 출시",
-            "summary": "(자동 분석 미포함)",
-            "date": "2026.03.07",
-            "link": "https://www.aitimes.com/news/articleView.html?idxno=207662"
-        },
-        {
-            "id": "post-4684b040",
-            "category": "AI",
-            "categoryLabel": "AI",
-            "title": "삼성 \"스마트 안경에 '눈높이' 카메라 내장...생태계 확장에 중점\"",
-            "summary": "(자동 분석 미포함)",
-            "date": "2026.03.07",
-            "link": "https://www.aitimes.com/news/articleView.html?idxno=207664"
-        },
-        {
-            "id": "post-483528f9",
-            "category": "AI",
-            "categoryLabel": "AI",
-            "title": "[AI카툰] Bob, Senior IT guy - 밥, 에이전트 오케스트라 지휘자",
-            "summary": "(자동 분석 미포함)",
-            "date": "2026.03.07",
-            "link": "https://www.aitimes.com/news/articleView.html?idxno=207629"
-        },
-        {
             "id": "post-4b8b588b",
             "category": "AI",
             "categoryLabel": "AI",
@@ -383,33 +266,6 @@
             "summary": "(자동 분석 미포함)",
             "date": "2026.03.06",
             "link": "https://www.aitimes.com/news/articleView.html?idxno=207652"
-        },
-        {
-            "id": "post-643f1a02",
-            "category": "AI",
-            "categoryLabel": "AI",
-            "title": "Agentforce ve Agentic AI Devrimi: Salesforce Innovation Day 2025",
-            "summary": "요약 실패 (API 오류)",
-            "date": "2026.03.06",
-            "link": "https://www.youtube.com/watch?v=B6D8ApeLeg8"
-        },
-        {
-            "id": "post-6e1137b4",
-            "category": "AI",
-            "categoryLabel": "AI",
-            "title": "GPT-6: AI Breakthrough That Changes Everything (New Features, Benchmarks &amp; Capabilities Explained)",
-            "summary": "요약 실패 (API 오류)",
-            "date": "2026.03.06",
-            "link": "https://www.youtube.com/watch?v=T0Q23wZLbbM"
-        },
-        {
-            "id": "post-104ef524",
-            "category": "AI",
-            "categoryLabel": "AI",
-            "title": "Generative AI Search  The MASSIVE Lightning Fast Migration!",
-            "summary": "요약 실패 (API 오류)",
-            "date": "2026.03.07",
-            "link": "https://www.youtube.com/watch?v=-nlHgoQ6ZU4"
         },
         {
             "id": "post-e65ca145",
@@ -455,69 +311,6 @@
             "summary": "요약 실패 (API 오류)",
             "date": "2026.03.05",
             "link": "https://www.youtube.com/watch?v=cbEN-JFGbr0"
-        },
-        {
-            "id": "post-45f1f2c3",
-            "category": "TECH",
-            "categoryLabel": "테크",
-            "title": "🎉🥰 Top Learning Tools for Tech Enthusiasts #shorts #shortsfeed #viralshorts",
-            "summary": "요약 실패 (API 오류)",
-            "date": "2026.03.06",
-            "link": "https://www.youtube.com/watch?v=6IhUa4nQ0eo"
-        },
-        {
-            "id": "post-f6e5dfd4",
-            "category": "STK",
-            "categoryLabel": "미국증시",
-            "title": "Oil Cut Chaos: Is the US Stock Market Set to Collapse?",
-            "summary": "요약 실패 (API 오류)",
-            "date": "2026.03.07",
-            "link": "https://www.youtube.com/watch?v=A_4edLqSwZw"
-        },
-        {
-            "id": "post-e0fdc2fc",
-            "category": "STK",
-            "categoryLabel": "미국증시",
-            "title": "अमेरिकन शेअर बाजारात मोठी घसरण | Big fall in the American stock market",
-            "summary": "요약 실패 (API 오류)",
-            "date": "2026.03.07",
-            "link": "https://www.youtube.com/watch?v=kGsIh2I4eVA"
-        },
-        {
-            "id": "post-4ddf8f66",
-            "category": "AI",
-            "categoryLabel": "AI",
-            "title": "AI Tools 2025 ใช้งานจริง | Prompt Engineering + Workflow อัตโนมัติ | MagicSuccess Podcast",
-            "summary": "요약 실패 (API 오류)",
-            "date": "2026.03.06",
-            "link": "https://www.youtube.com/watch?v=VFbv_RJd4l0"
-        },
-        {
-            "id": "post-70c5ecce",
-            "category": "AUTO",
-            "categoryLabel": "자동화",
-            "title": "La herramienta de automatización más PODEROSA que existe (N8N + Docker)",
-            "summary": "요약 실패 (API 오류)",
-            "date": "2026.03.06",
-            "link": "https://www.youtube.com/watch?v=2AWn3ikNwHA"
-        },
-        {
-            "id": "post-49b46790",
-            "category": "AUTO",
-            "categoryLabel": "자동화",
-            "title": "Crea Tu Workflow: Guía Paso a Paso de Webhooks | Leifer Méndez",
-            "summary": "요약 실패 (API 오류)",
-            "date": "2026.03.06",
-            "link": "https://www.youtube.com/watch?v=oZ8j-75KL80"
-        },
-        {
-            "id": "post-3c4dbc8a",
-            "category": "AUTO",
-            "categoryLabel": "자동화",
-            "title": "n8n AI Workflow to Winback Old Clients | AI Automation Tutorial | Business Automation| AI Workflow",
-            "summary": "요약 실패 (API 오류)",
-            "date": "2026.03.06",
-            "link": "https://www.youtube.com/watch?v=Y0zc80FK2Uo"
         },
         {
             "id": "post-01",
