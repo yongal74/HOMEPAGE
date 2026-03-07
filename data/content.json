@@ -33,6 +33,519 @@
     ],
     "blogs": [
         {
+            "id": "post-b82a02e5",
+            "category": "NEWS",
+            "categoryLabel": "AI|사회",
+            "title": "AI 대체에 대한 감정이 악화되고 있습니다.",
+            "summary": "AI 기술의 발전에 따라 대체에 대한 우려가 커지고 있습니다. 이는 노동 시장과 사회 전반에 걸쳐 영향을 미치고 있으며, 이에 대한 논의가 필요합니다. AI의 역할과 인간의 일자리 보호 간의 균형을 찾는 것이 중요합니다.",
+            "date": "2026.03.07",
+            "link": "https://seekingalpha.com/article/4879794-sentiment-sours-on-ai-substitution?source=feed_all_articles"
+        },
+        {
+            "id": "post-9ee27df6",
+            "category": "NEWS",
+            "categoryLabel": "테크|AI",
+            "title": "OpenClaw 리뷰 2025: 궁극의 AI 에이전트 경고!",
+            "summary": "OpenClaw는 자율 AI 에이전트로, 2025년의 기술 혁신을 반영하고 있습니다. 이 영상에서는 OpenClaw의 기능과 가격을 소개하며, 이 제품이 시장에서 어떤 위치를 차지할지에 대해 논의합니다.",
+            "date": "2026.03.06",
+            "link": "https://www.youtube.com/watch?v=TvhIfpQOe5s"
+        },
+        {
+            "id": "post-d409b91d",
+            "category": "NEWS",
+            "categoryLabel": "테크|AI",
+            "title": "이 숨겨진 프로토콜이 AI에게 슈퍼파워를 부여합니다 (대부분의 사람들은 모릅니다)",
+            "summary": "MCP(모델 컨텍스트 프로토콜)는 AI 회사들이 채택하기 위해 경쟁하고 있는 혁신적인 프로토콜입니다. 이 영상에서는 MCP의 작동 방식과 AI에 미치는 영향을 설명합니다.",
+            "date": "2026.03.06",
+            "link": "https://www.youtube.com/watch?v=nrXvQ92WCHE"
+        },
+        {
+            "id": "post-54c95dad",
+            "category": "NEWS",
+            "categoryLabel": "테크|AI",
+            "title": "왜 나는 여러 AI 코딩 에이전트에 매달 650달러를 지불하는가",
+            "summary": "2025년, CLI 에이전트의 출현으로 코딩 세계가 변화했습니다. 이 영상에서는 BridgeSpace 플랫폼을 통해 다양한 AI 코딩 에이전트를 사용하는 이유를 설명합니다.",
+            "date": "2026.03.06",
+            "link": "https://www.youtube.com/watch?v=8kyXqeRF4Ss"
+        },
+        {
+            "id": "post-baacb431",
+            "category": "NEWS",
+            "categoryLabel": "테크|AI",
+            "title": "에이전트포스와 에이전틱 AI 혁명: 세일즈포스 혁신의 날 2025",
+            "summary": "기업 세계에서 AI는 단순한 '비서' 역할을 넘어 '에이전트'로 진화하고 있습니다. 이 영상에서는 세일즈포스 혁신의 날 행사에서 발표된 AI 혁신을 다룹니다.",
+            "date": "2026.03.06",
+            "link": "https://www.youtube.com/watch?v=B6D8ApeLeg8"
+        },
+        {
+            "id": "post-aa73f6b4",
+            "category": "NEWS",
+            "categoryLabel": "테크|AI",
+            "title": "AI 거버넌스 혁신: 2025년 반성과 2026년 로드맵",
+            "summary": "2025년, 각 주에서는 AI의 거버넌스와 사용 방식에 대한 중요한 진전을 이루었습니다. 이 영상에서는 이러한 변화와 향후 계획을 논의합니다.",
+            "date": "2026.03.05",
+            "link": "https://www.youtube.com/watch?v=ck58SuQ7q_o"
+        },
+        {
+            "id": "post-4bad77e4",
+            "category": "NEWS",
+            "categoryLabel": "테크|AI|혁신",
+            "title": "인간처럼 생각하는 AI (비밀 추론의 돌파구)",
+            "summary": "이 영상에서는 단순한 언어 모델이 아닌, 인간처럼 사고하는 AI의 혁신적인 세계를 소개합니다. AI가 어떻게 사고하고 의사결정을 내리는지를 탐구합니다.",
+            "date": "2026.03.07",
+            "link": "https://www.youtube.com/watch?v=kj4J9QW2K6I"
+        },
+        {
+            "id": "post-a2f22136",
+            "category": "NEWS",
+            "categoryLabel": "테크|AI|혁신",
+            "title": "모든 것을 변화시키는 AI 돌파구 (새로운 기능, 벤치마크 및 능력 설명)",
+            "summary": "OpenAI의 발전이 실제로 계산된 것인지, 아니면 무작정 시도하는 것인지에 대한 논의가 이루어집니다. AI의 새로운 기능과 성능에 대한 설명이 포함되어 있습니다.",
+            "date": "2026.03.07",
+            "link": "https://www.youtube.com/watch?v=OjzdmDwkWOs"
+        },
+        {
+            "id": "post-ca198d7a",
+            "category": "NEWS",
+            "categoryLabel": "테크|AI|혁신",
+            "title": "AI의 인간 기원",
+            "summary": "AI와 인간의 사고가 어떻게 연결되는지를 설명하는 60초 분량의 짧은 영상입니다. 평생 학습자와 학자들을 위한 AI의 매력을 탐구합니다.",
+            "date": "2026.03.07",
+            "link": "https://www.youtube.com/watch?v=01MQYF2Coy8"
+        },
+        {
+            "id": "post-2e187418",
+            "category": "NEWS",
+            "categoryLabel": "테크|AI|혁신",
+            "title": "AI의 진정한 힘은 소프트웨어가 아니다",
+            "summary": "AI 모델은 막대한 컴퓨팅 파워를 요구하며, 이러한 AI 돌파구 뒤에는 수천 개의 데이터 센터가 존재한다는 내용을 다룹니다.",
+            "date": "2026.03.07",
+            "link": "https://www.youtube.com/watch?v=HgPRn_ViU8U"
+        },
+        {
+            "id": "post-dd1cc475",
+            "category": "NEWS",
+            "categoryLabel": "테크|AI|혁신",
+            "title": "GPT-6: 모든 것을 변화시키는 AI 돌파구",
+            "summary": "OpenAI가 발표한 GPT-6는 지금까지 만들어진 가장 강력한 AI 모델일 수 있으며, 새로운 기능과 성능에 대한 설명이 포함되어 있습니다.",
+            "date": "2026.03.06",
+            "link": "https://www.youtube.com/watch?v=T0Q23wZLbbM"
+        },
+        {
+            "id": "post-efa8585e",
+            "category": "NEWS",
+            "categoryLabel": "테크|AI",
+            "title": "생성적 AI 검색: 엄청난 속도의 이주",
+            "summary": "생성적 AI 검색 도구인 ChatGPT와 제미니가 전통적인 검색보다 165배 빠르게 성장하고 있다는 내용을 다룹니다. 이는 AI 검색의 급속한 발전을 나타냅니다.",
+            "date": "2026.03.07",
+            "link": "https://www.youtube.com/watch?v=-nlHgoQ6ZU4"
+        },
+        {
+            "id": "post-c39f3009",
+            "category": "NEWS",
+            "categoryLabel": "블록체인|스테이블코인|혁신",
+            "title": "미국 의회, 스테이블코인의 미래를 정의하다 | 프렌치 힐이 규제를 설명하다",
+            "summary": "프렌치 힐 의원이 미국 내 스테이블코인 규제의 현황과 입법 작업을 분석합니다. 스테이블코인의 미래에 대한 중요한 논의가 이루어지고 있습니다.",
+            "date": "2026.03.06",
+            "link": "https://www.youtube.com/watch?v=vjhWhV79NcU"
+        },
+        {
+            "id": "post-316b1c1a",
+            "category": "NEWS",
+            "categoryLabel": "블록체인|정치|금융",
+            "title": "트럼프, 은행에 전쟁 선언 🚨 암호화폐가 미국 금융 시스템을 장악하다",
+            "summary": "미국 내 은행과 암호화폐 간의 갈등이 심화되고 있으며, 도널드 트럼프가 암호화폐를 지지하는 발언을 하였습니다. 이 영상은 이러한 갈등의 배경과 암호화폐의 미래에 대한 전망을 다룹니다.",
+            "date": "2026.03.05",
+            "link": "https://www.youtube.com/watch?v=fM21rz4RHQw"
+        },
+        {
+            "id": "post-0748909a",
+            "category": "NEWS",
+            "categoryLabel": "블록체인|정치|금융",
+            "title": "트럼프, 은행에 맞서 암호화폐 지지: 1조 달러의 대결!",
+            "summary": "트럼프 대통령이 암호화폐를 지지하며 은행과의 대결을 예고합니다. 스테이블코인 보상 문제와 Coinbase의 규제 상황에 대한 논의가 포함되어 있습니다.",
+            "date": "2026.03.05",
+            "link": "https://www.youtube.com/watch?v=Sc9s6yrnP0I"
+        },
+        {
+            "id": "post-40a58352",
+            "category": "NEWS",
+            "categoryLabel": "블록체인|스테이블코인|정치",
+            "title": "트럼프, 스테이블코인 수익을 두고 은행을 비판하다 - 최신 AI 및 암호화폐 뉴스",
+            "summary": "트럼프 전 대통령이 스테이블코인 수익에 대해 은행을 비판하며 전통 금융과 암호화폐 산업 간의 갈등을 촉발하고 있습니다.",
+            "date": "2026.03.05",
+            "link": "https://www.youtube.com/watch?v=fTx5jp4aMEo"
+        },
+        {
+            "id": "post-abbd3c22",
+            "category": "TECH",
+            "categoryLabel": "테크",
+            "title": "최고의 학습 도구들 - 테크 애호가를 위한",
+            "summary": "최신 영상에서는 2025년을 대비한 다양한 최첨단 기기와 다용도 도구들을 소개합니다. 이 도구들은 기술 애호가들에게 필수적인 아이템으로, 혁신적인 학습 경험을 제공합니다.",
+            "date": "2026.03.06",
+            "link": "https://www.youtube.com/watch?v=6IhUa4nQ0eo"
+        },
+        {
+            "id": "post-0380a35a",
+            "category": "TECH",
+            "categoryLabel": "테크",
+            "title": "2025년 스마트 학습 기술 | 모든 연령을 위한 차세대 기기!",
+            "summary": "2025년을 위한 스마트 학습 기술과 차세대 기기를 소개하는 영상입니다. 모든 연령대의 사용자들이 활용할 수 있는 혁신적인 제품들이 포함되어 있습니다.",
+            "date": "2026.03.06",
+            "link": "https://www.youtube.com/watch?v=vt_KNvNobvU"
+        },
+        {
+            "id": "post-15c8b4a8",
+            "category": "NEWS",
+            "categoryLabel": "주식시장",
+            "title": "미국-이란 전쟁이 인도 시장에 미치는 영향은?",
+            "summary": "영상 내용이 없어 구체적인 정보는 제공되지 않습니다. 그러나 주식 시장과 투자에 대한 논의가 이루어질 것으로 예상됩니다.",
+            "date": "2026.03.07",
+            "link": "https://www.youtube.com/watch?v=eiD2TmymLe4"
+        },
+        {
+            "id": "post-4676be3d",
+            "category": "TECH",
+            "categoryLabel": "테크",
+            "title": "단기 시장 업데이트 | 3월 6일 | 다우존스 | 미국 주식 시장",
+            "summary": "3월 6일 미국 주식 시장에 대한 간략한 업데이트를 제공합니다. 다우존스와 나스닥 지수의 최근 동향을 다루고 있습니다.",
+            "date": "2026.03.07",
+            "link": "https://www.youtube.com/watch?v=NrkYnljKtsQ"
+        },
+        {
+            "id": "post-73b7f662",
+            "category": "NEWS",
+            "categoryLabel": "테크|AI|혁신",
+            "title": "AI 도구 2025 실제 사용 | 프롬프트 엔지니어링 + 자동화 워크플로우 | MagicSuccess 팟캐스트",
+            "summary": "이 에피소드는 AI를 사용하고 있지만 결과가 만족스럽지 않거나 시작점이 불확실한 사람들을 위한 내용입니다. AI 도구의 활용 방법과 자동화 워크플로우를 설명합니다.",
+            "date": "2026.03.06",
+            "link": "https://www.youtube.com/watch?v=VFbv_RJd4l0"
+        },
+        {
+            "id": "post-94148cfa",
+            "category": "NEWS",
+            "categoryLabel": "테크|AI|혁신",
+            "title": "가장 강력한 자동화 도구 (N8N + Docker)",
+            "summary": "N8N과 Docker를 사용하여 24시간 작동하는 AI 에이전트를 만드는 방법을 배우는 영상입니다. 개인의 운영 체계를 구축하는 방법을 설명합니다.",
+            "date": "2026.03.06",
+            "link": "https://www.youtube.com/watch?v=2AWn3ikNwHA"
+        },
+        {
+            "id": "post-1645c143",
+            "category": "NEWS",
+            "categoryLabel": "테크|AI|혁신",
+            "title": "누군가 당신의 N8N 워크플로우를 읽을 수 있을까? 🤔",
+            "summary": "N8N 워크플로우의 정리와 명확한 노드 이름 지정의 중요성을 강조하는 영상입니다. 클라이언트와의 신뢰를 구축하는 방법을 설명합니다.",
+            "date": "2026.03.06",
+            "link": "https://www.youtube.com/watch?v=1PY7w0Y7qvc"
+        },
+        {
+            "id": "post-6e61666a",
+            "category": "NEWS",
+            "categoryLabel": "테크|AI|혁신",
+            "title": "웹훅을 이용한 워크플로우 생성: 단계별 가이드",
+            "summary": "웹훅을 활용하여 워크플로우를 만드는 방법을 단계별로 안내하는 영상입니다. 실용적인 예시를 통해 이해를 돕습니다.",
+            "date": "2026.03.06",
+            "link": "https://www.youtube.com/watch?v=oZ8j-75KL80"
+        },
+        {
+            "id": "post-b11ff911",
+            "category": "NEWS",
+            "categoryLabel": "테크|AI|혁신",
+            "title": "내가 만든 AI가 LinkedIn에 자동으로 게시합니다 🤖 #shorts #n8n",
+            "summary": "N8N과 AI를 사용하여 LinkedIn 자동화 시스템을 구축한 경험을 공유하는 짧은 영상입니다. 주제를 입력하면 AI가 이미지를 생성하고 글을 작성합니다.",
+            "date": "2026.03.06",
+            "link": "https://www.youtube.com/watch?v=RvD69ZW1ngE"
+        },
+        {
+            "id": "post-93ff6610",
+            "category": "NEWS",
+            "categoryLabel": "테크|AI|비즈니스 자동화",
+            "title": "n8n AI 워크플로우로 오래된 고객 되찾기 | AI 자동화 튜토리얼 | 비즈니스 자동화 | AI 워크플로우",
+            "summary": "이 영상에서는 n8n을 사용하여 AI 기반의 고객 되찾기 자동화를 만드는 방법을 보여줍니다. 이 워크플로우는 기업들이 이전 고객을 다시 유치하는 데 도움을 줍니다. 자동화 과정을 통해 시간과 노력을 절약할 수 있습니다.",
+            "date": "2026.03.06",
+            "link": "https://www.youtube.com/watch?v=Y0zc80FK2Uo"
+        },
+        {
+            "id": "post-34546aaa",
+            "category": "AI",
+            "categoryLabel": "AI",
+            "title": "Scaling intelligent automation without breaking live workflows",
+            "summary": "요약 실패 (API 오류)",
+            "date": "2026.03.07",
+            "link": "https://www.artificialintelligence-news.com/news/scaling-intelligent-automation-without-breaking-live-workflows/"
+        },
+        {
+            "id": "post-dfedb7a5",
+            "category": "FI",
+            "categoryLabel": "스테이블코인",
+            "title": "First US state-level stablecoin bill passes in Florida",
+            "summary": "요약 실패 (API 오류)",
+            "date": "2026.03.07",
+            "link": "https://www.theblock.co/post/392733/first-us-state-level-stablecoin-bill-passes-in-florida?utm_source=rss&utm_medium=rss"
+        },
+        {
+            "id": "post-cebd9977",
+            "category": "TECH",
+            "categoryLabel": "테크",
+            "title": "Google's new command-line tool can plug OpenClaw into your Workspace data",
+            "summary": "(자동 분석 미포함)",
+            "date": "2026.03.07",
+            "link": "https://arstechnica.com/ai/2026/03/googles-new-command-line-tool-can-plug-openclaw-into-your-workspace-data/"
+        },
+        {
+            "id": "post-83d35025",
+            "category": "AI",
+            "categoryLabel": "AI",
+            "title": "앤트로픽, '클로드' 기반 소프트웨어 마켓플레이스 공개",
+            "summary": "(자동 분석 미포함)",
+            "date": "2026.03.07",
+            "link": "https://www.aitimes.com/news/articleView.html?idxno=207663"
+        },
+        {
+            "id": "post-128308c0",
+            "category": "AI",
+            "categoryLabel": "AI",
+            "title": "오픈AI, 에이전트 보안 도구 '코덱스 시큐리티' 출시",
+            "summary": "(자동 분석 미포함)",
+            "date": "2026.03.07",
+            "link": "https://www.aitimes.com/news/articleView.html?idxno=207662"
+        },
+        {
+            "id": "post-4684b040",
+            "category": "AI",
+            "categoryLabel": "AI",
+            "title": "삼성 \"스마트 안경에 '눈높이' 카메라 내장...생태계 확장에 중점\"",
+            "summary": "(자동 분석 미포함)",
+            "date": "2026.03.07",
+            "link": "https://www.aitimes.com/news/articleView.html?idxno=207664"
+        },
+        {
+            "id": "post-483528f9",
+            "category": "AI",
+            "categoryLabel": "AI",
+            "title": "[AI카툰] Bob, Senior IT guy - 밥, 에이전트 오케스트라 지휘자",
+            "summary": "(자동 분석 미포함)",
+            "date": "2026.03.07",
+            "link": "https://www.aitimes.com/news/articleView.html?idxno=207629"
+        },
+        {
+            "id": "post-4b8b588b",
+            "category": "AI",
+            "categoryLabel": "AI",
+            "title": "오픈AI, 코딩 전용 데스크톱 앱 '코덱스' 윈도우 버전 출시",
+            "summary": "(자동 분석 미포함)",
+            "date": "2026.03.06",
+            "link": "https://www.aitimes.com/news/articleView.html?idxno=207652"
+        },
+        {
+            "id": "post-d2273835",
+            "category": "AI",
+            "categoryLabel": "AI",
+            "title": "OpenClaw Review 2025: Ultimate AI Agent WARNING! tech gadget",
+            "summary": "요약 실패 (API 오류)",
+            "date": "2026.03.06",
+            "link": "https://www.youtube.com/watch?v=TvhIfpQOe5s"
+        },
+        {
+            "id": "post-643f1a02",
+            "category": "AI",
+            "categoryLabel": "AI",
+            "title": "Agentforce ve Agentic AI Devrimi: Salesforce Innovation Day 2025",
+            "summary": "요약 실패 (API 오류)",
+            "date": "2026.03.06",
+            "link": "https://www.youtube.com/watch?v=B6D8ApeLeg8"
+        },
+        {
+            "id": "post-205a91ad",
+            "category": "AI",
+            "categoryLabel": "AI",
+            "title": "AI Governance Innovations: 2025 Reflections &amp; the 2026 Roadmap",
+            "summary": "요약 실패 (API 오류)",
+            "date": "2026.03.05",
+            "link": "https://www.youtube.com/watch?v=ck58SuQ7q_o"
+        },
+        {
+            "id": "post-e374db03",
+            "category": "AI",
+            "categoryLabel": "AI",
+            "title": "AI Breakthrough That Changes Everything (New Features, Benchmarks &amp; Capabilities Explained)",
+            "summary": "요약 실패 (API 오류)",
+            "date": "2026.03.07",
+            "link": "https://www.youtube.com/watch?v=OjzdmDwkWOs"
+        },
+        {
+            "id": "post-55763b87",
+            "category": "AI",
+            "categoryLabel": "AI",
+            "title": "AI&#39;s Human Origin #Intelligence Built From Our #Knowledge #artificial #breakthrough #old #basic",
+            "summary": "요약 실패 (API 오류)",
+            "date": "2026.03.07",
+            "link": "https://www.youtube.com/watch?v=01MQYF2Coy8"
+        },
+        {
+            "id": "post-6e1137b4",
+            "category": "AI",
+            "categoryLabel": "AI",
+            "title": "GPT-6: AI Breakthrough That Changes Everything (New Features, Benchmarks &amp; Capabilities Explained)",
+            "summary": "요약 실패 (API 오류)",
+            "date": "2026.03.06",
+            "link": "https://www.youtube.com/watch?v=T0Q23wZLbbM"
+        },
+        {
+            "id": "post-104ef524",
+            "category": "AI",
+            "categoryLabel": "AI",
+            "title": "Generative AI Search  The MASSIVE Lightning Fast Migration!",
+            "summary": "요약 실패 (API 오류)",
+            "date": "2026.03.07",
+            "link": "https://www.youtube.com/watch?v=-nlHgoQ6ZU4"
+        },
+        {
+            "id": "post-e65ca145",
+            "category": "AI",
+            "categoryLabel": "AI",
+            "title": "Top 5 AI Trends in 2026 That Will Change Everything",
+            "summary": "요약 실패 (API 오류)",
+            "date": "2026.03.06",
+            "link": "https://www.youtube.com/watch?v=ql1fGkQWfPQ"
+        },
+        {
+            "id": "post-6f9b5f28",
+            "category": "AI",
+            "categoryLabel": "AI",
+            "title": "𝐓𝐎𝐏 𝟓 𝐀𝐈 𝐓𝐫𝐞𝐧𝐝𝐬 𝐘𝐎𝐔 𝐍𝐞𝐞𝐝 𝐭𝐨 𝐊𝐧𝐨𝐰 | #shorts  #ai #generativeai",
+            "summary": "요약 실패 (API 오류)",
+            "date": "2026.03.06",
+            "link": "https://www.youtube.com/watch?v=X_UlruImJhw"
+        },
+        {
+            "id": "post-ae695c31",
+            "category": "AI",
+            "categoryLabel": "AI",
+            "title": "The Future of AI: Autonomous Agents &amp; Scientific Breakthroughs 🤖🔬 #FutureTech #Shorts",
+            "summary": "요약 실패 (API 오류)",
+            "date": "2026.03.06",
+            "link": "https://www.youtube.com/watch?v=uQ7wXJX9jag"
+        },
+        {
+            "id": "post-ce389e5a",
+            "category": "AI",
+            "categoryLabel": "AI",
+            "title": "OpenAI brings ChatGPT to Excel and Sheets with finance tools #shorts",
+            "summary": "요약 실패 (API 오류)",
+            "date": "2026.03.05",
+            "link": "https://www.youtube.com/watch?v=6KoSjgVwepo"
+        },
+        {
+            "id": "post-d974d27e",
+            "category": "AI",
+            "categoryLabel": "AI",
+            "title": "My MWC 2026 Take-Aways: Smart Glasses, Humanoid Robots And Agentic AI",
+            "summary": "요약 실패 (API 오류)",
+            "date": "2026.03.05",
+            "link": "https://www.youtube.com/watch?v=cbEN-JFGbr0"
+        },
+        {
+            "id": "post-45f1f2c3",
+            "category": "TECH",
+            "categoryLabel": "테크",
+            "title": "🎉🥰 Top Learning Tools for Tech Enthusiasts #shorts #shortsfeed #viralshorts",
+            "summary": "요약 실패 (API 오류)",
+            "date": "2026.03.06",
+            "link": "https://www.youtube.com/watch?v=6IhUa4nQ0eo"
+        },
+        {
+            "id": "post-ba7ae9fc",
+            "category": "TECH",
+            "categoryLabel": "테크",
+            "title": "🔥 Smart Learning Tech for 2025 | Next-Gen Gadgets for All Ages!#shorts #viralshorts #techshorts 139",
+            "summary": "요약 실패 (API 오류)",
+            "date": "2026.03.06",
+            "link": "https://www.youtube.com/watch?v=vt_KNvNobvU"
+        },
+        {
+            "id": "post-7c665b0d",
+            "category": "STK",
+            "categoryLabel": "미국증시",
+            "title": "How US- IRAN War Impact Indian Market? #stockmarket #investing #trading",
+            "summary": "요약 실패 (API 오류)",
+            "date": "2026.03.07",
+            "link": "https://www.youtube.com/watch?v=eiD2TmymLe4"
+        },
+        {
+            "id": "post-f6e5dfd4",
+            "category": "STK",
+            "categoryLabel": "미국증시",
+            "title": "Oil Cut Chaos: Is the US Stock Market Set to Collapse?",
+            "summary": "요약 실패 (API 오류)",
+            "date": "2026.03.07",
+            "link": "https://www.youtube.com/watch?v=A_4edLqSwZw"
+        },
+        {
+            "id": "post-e0fdc2fc",
+            "category": "STK",
+            "categoryLabel": "미국증시",
+            "title": "अमेरिकन शेअर बाजारात मोठी घसरण | Big fall in the American stock market",
+            "summary": "요약 실패 (API 오류)",
+            "date": "2026.03.07",
+            "link": "https://www.youtube.com/watch?v=kGsIh2I4eVA"
+        },
+        {
+            "id": "post-4ddf8f66",
+            "category": "AI",
+            "categoryLabel": "AI",
+            "title": "AI Tools 2025 ใช้งานจริง | Prompt Engineering + Workflow อัตโนมัติ | MagicSuccess Podcast",
+            "summary": "요약 실패 (API 오류)",
+            "date": "2026.03.06",
+            "link": "https://www.youtube.com/watch?v=VFbv_RJd4l0"
+        },
+        {
+            "id": "post-70c5ecce",
+            "category": "AUTO",
+            "categoryLabel": "자동화",
+            "title": "La herramienta de automatización más PODEROSA que existe (N8N + Docker)",
+            "summary": "요약 실패 (API 오류)",
+            "date": "2026.03.06",
+            "link": "https://www.youtube.com/watch?v=2AWn3ikNwHA"
+        },
+        {
+            "id": "post-8e1c93d7",
+            "category": "AUTO",
+            "categoryLabel": "자동화",
+            "title": "Can Someone Read Your N8N Workflow? 🤔",
+            "summary": "요약 실패 (API 오류)",
+            "date": "2026.03.06",
+            "link": "https://www.youtube.com/watch?v=1PY7w0Y7qvc"
+        },
+        {
+            "id": "post-49b46790",
+            "category": "AUTO",
+            "categoryLabel": "자동화",
+            "title": "Crea Tu Workflow: Guía Paso a Paso de Webhooks | Leifer Méndez",
+            "summary": "요약 실패 (API 오류)",
+            "date": "2026.03.06",
+            "link": "https://www.youtube.com/watch?v=oZ8j-75KL80"
+        },
+        {
+            "id": "post-278b8a41",
+            "category": "AUTO",
+            "categoryLabel": "자동화",
+            "title": "I Built an AI That Posts on LinkedIn for Me 🤖 #shorts #n8n",
+            "summary": "요약 실패 (API 오류)",
+            "date": "2026.03.06",
+            "link": "https://www.youtube.com/watch?v=RvD69ZW1ngE"
+        },
+        {
+            "id": "post-3c4dbc8a",
+            "category": "AUTO",
+            "categoryLabel": "자동화",
+            "title": "n8n AI Workflow to Winback Old Clients | AI Automation Tutorial | Business Automation| AI Workflow",
+            "summary": "요약 실패 (API 오류)",
+            "date": "2026.03.06",
+            "link": "https://www.youtube.com/watch?v=Y0zc80FK2Uo"
+        },
+        {
             "id": "post-01",
             "category": "AUTO",
             "categoryLabel": "자동화",

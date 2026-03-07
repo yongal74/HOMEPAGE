@@ -118,7 +118,7 @@ tabs.forEach(tab => {
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 async function loadCMSData() {
   try {
-    const res = await fetch('data/content.json');
+    const res = await fetch(`data/content.json?t=${new Date().getTime()}`);
     if (!res.ok) throw new Error('CMS data not found');
     const data = await res.json();
     renderBooks(data.books);
