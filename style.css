@@ -866,6 +866,22 @@ button {
   color: var(--cyan-light);
 }
 
+/* ━━━ RESOURCES ━━━ */
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.res-icon {
+  margin-bottom: 12px;
+  font-size: 1.5rem;
+  background: transparent;
+  border: none;
+  padding: 0;
+  display: inline-block;
+}
+
 /* ━━━ AUTOMATION / COPILOT ━━━ */
 .auto-steps {
   display: grid;

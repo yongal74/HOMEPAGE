@@ -121,18 +121,83 @@ async function loadCMSData() {
     const res = await fetch('data/content.json');
     if (!res.ok) throw new Error('CMS data not found');
     const data = await res.json();
+    renderBooks(data.books);
+    renderResources(data.resources);
     renderBlogs(data.blogs);
-    // TODO: 서적과 리소스 영역도 향후 렌더링에 연결
   } catch (err) {
     console.error('Failed to load CMS data:', err);
   }
+}
+
+function renderBooks(books) {
+  const grid = document.getElementById('books-grid');
+  if (!grid || !books) return;
+  grid.innerHTML = '';
+
+  books.forEach((book, i) => {
+    const card = document.createElement('div');
+    card.className = `book-card reveal visible`;
+    card.style.transitionDelay = `${(i % 3) * 0.1}s`;
+
+    // 테마 컬러에 따른 동적 태그 스타일링
+    let tagStyle = '';
+    if (book.themeColor === 'cyan') {
+      tagStyle = 'background: rgba(6,182,212,.15); color: var(--cyan-light); border-color: rgba(6,182,212,.3);';
+    } else if (book.themeColor === 'teal') {
+      tagStyle = 'background: rgba(16,185,129,.15); color: #6ee7b7; border-color: rgba(16,185,129,.3);';
+    }
+
+    card.innerHTML = `
+      <div class="book-cover-img">
+        <img src="${book.coverImg}" alt="${book.title} 표지" loading="lazy" />
+        <div class="book-img-shine"></div>
+      </div>
+      <div class="book-info">
+        <span class="book-series-tag" style="${tagStyle}">${book.series}</span>
+        <h3>${book.title}</h3>
+        <p>${book.description}</p>
+        <ul class="book-tags">
+          ${book.tags.map(t => `<li>${t}</li>`).join('')}
+        </ul>
+        <div class="book-actions">
+          <a href="${book.link}" target="_blank" class="btn-book ${book.themeColor === 'teal' ? 'btn-book-teal' : ''}">교보문고 바로가기</a>
+        </div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+function renderResources(resources) {
+  const grid = document.getElementById('resources-grid');
+  if (!grid || !resources) return;
+  grid.innerHTML = '';
+
+  resources.forEach((res, i) => {
+    const card = document.createElement('article');
+    card.className = `blog-card reveal visible`; // Use blog-card styles as a base
+    card.style.transitionDelay = `${(i % 3) * 0.1}s`;
+
+    card.innerHTML = `
+      <div class="res-icon">${res.icon}</div>
+      <div class="blog-cat auto">${res.type}</div>
+      <h3 style="margin-top: 12px;">${res.title}</h3>
+      <p>${res.description}</p>
+      <div class="blog-footer" style="margin-top:auto;">
+        <span class="blog-date">무료 배포</span>
+        <a href="${res.link}" class="blog-read">다운로드 →</a>
+      </div>
+    `;
+    card.style.display = 'flex';
+    card.style.flexDirection = 'column';
+    grid.appendChild(card);
+  });
 }
 
 function renderBlogs(blogs) {
   const grid = document.getElementById('blog-grid');
   if (!grid || !blogs) return;
 
-  // 기존 하드코딩된 내용 대신 JSON 데이터로만 채우기
   grid.innerHTML = '';
 
   blogs.forEach((blog, i) => {
