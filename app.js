@@ -196,26 +196,92 @@ function renderResources(resources) {
 
 function renderBlogs(blogs) {
   const grid = document.getElementById('blog-grid');
-  if (!grid || !blogs) return;
+  const tabsContainer = document.getElementById('category-tabs');
+  if (!grid || !blogs || !tabsContainer) return;
 
-  grid.innerHTML = '';
+  // 1. 모든 블로그 데이터에서 태그(categoryLabel) 추출 및 중복 제거
+  const allTags = new Set();
+  blogs.forEach(blog => {
+    if (blog.categoryLabel) {
+      // "테크|AI|혁신" 같은 문자열을 분리해서 태그로 사용
+      const tags = blog.categoryLabel.split('|').map(t => t.trim()).filter(t => t);
+      tags.forEach(t => allTags.add(t));
+      // 내부 데이터로 배열 저장 (필터링 용도)
+      blog._tags = tags;
+    } else {
+      blog._tags = [];
+    }
+  });
 
-  blogs.forEach((blog, i) => {
-    const card = document.createElement('article');
-    card.className = `blog-card reveal visible`;
-    card.style.transitionDelay = `${(i % 4) * 0.08}s`;
-    card.dataset.cat = blog.category;
+  const uniqueTags = Array.from(allTags).sort();
 
-    card.innerHTML = `
-      <div class="blog-cat ${blog.category.toLowerCase()}">${blog.categoryLabel}</div>
-      <h3>${blog.title}</h3>
-      <p>${blog.summary}</p>
-      <div class="blog-footer">
-        <span class="blog-date">${blog.date}</span>
-        <a href="${blog.link}" class="blog-read">읽기 →</a>
-      </div>
-    `;
-    grid.appendChild(card);
+  // 2. 동적 카테고리 탭 생성
+  tabsContainer.innerHTML = '';
+
+  // '전체' 탭
+  const btnAll = document.createElement('button');
+  btnAll.className = 'tab active';
+  btnAll.dataset.cat = 'all';
+  btnAll.textContent = '전체';
+  tabsContainer.appendChild(btnAll);
+
+  // 개별 태그 탭
+  uniqueTags.forEach(tag => {
+    const btn = document.createElement('button');
+    btn.className = 'tab';
+    btn.dataset.cat = tag;
+    btn.textContent = tag;
+    tabsContainer.appendChild(btn);
+  });
+
+  // 3. 필터링 로직 구현 헬퍼
+  const filterBlogs = (selectedTag) => {
+    grid.innerHTML = ''; // 그리드 초기화
+
+    // 선택된 태그에 맞는 블로그 필터링 ('all' 이면 전부 표시)
+    const filteredBlogs = selectedTag === 'all'
+      ? blogs
+      : blogs.filter(b => b._tags.includes(selectedTag));
+
+    filteredBlogs.forEach((blog, i) => {
+      const card = document.createElement('article');
+      card.className = `blog-card reveal visible`;
+      card.style.transitionDelay = `${(i % 4) * 0.08}s`;
+      card.dataset.cat = selectedTag === 'all' ? blog.category : selectedTag;
+
+      // 태그 출력 로직
+      const tagsHtml = blog._tags.length > 0
+        ? `<div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:12px;">` +
+        blog._tags.map(t => `<span class="blog-cat" style="background:rgba(255,255,255,0.05); color:var(--text-2); font-size:0.75rem; padding:4px 8px;">#${t}</span>`).join('') +
+        `</div>`
+        : `<div class="blog-cat ${blog.category?.toLowerCase() || ''}">${blog.categoryLabel || blog.category || 'NEWS'}</div>`;
+
+      card.innerHTML = `
+        ${tagsHtml}
+        <h3>${blog.title}</h3>
+        <p>${blog.summary}</p>
+        <div class="blog-footer">
+          <span class="blog-date">${blog.date}</span>
+          <a href="${blog.link}" class="blog-read" target="_blank">읽기 →</a>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  };
+
+  // 4. 초기 렌더링 (전체)
+  filterBlogs('all');
+
+  // 5. 탭 클릭 이벤트 리스너 등록
+  tabsContainer.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', (e) => {
+      // 엑티브 클래스 변경
+      tabsContainer.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      e.target.classList.add('active');
+
+      // 필터링 실행
+      filterBlogs(e.target.dataset.cat);
+    });
   });
 }
 
