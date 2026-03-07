@@ -234,22 +234,60 @@ function renderBlogs(blogs) {
     tabsContainer.appendChild(btn);
   });
 
-  // 3. 필터링 로직 구현 헬퍼
+  // 3. 날짜 역순 정렬 및 최신 날짜 파악 (하루치만 보여주기 위함)
+  blogs.sort((a, b) => b.date.localeCompare(a.date));
+  const latestDate = blogs.length > 0 ? blogs[0].date : null;
+
+  let currentSelectedTag = 'all';
+  let isArchiveVisible = false;
+  const btnArchive = document.getElementById('btn-show-archive');
+
+  if (btnArchive) {
+    // 이전 리스너 방지를 위해 재생성 (복제)
+    const newBtn = btnArchive.cloneNode(true);
+    btnArchive.parentNode.replaceChild(newBtn, btnArchive);
+    newBtn.addEventListener('click', () => {
+      isArchiveVisible = true;
+      filterBlogs(currentSelectedTag);
+    });
+  }
+
+  // 4. 필터링 로직 구현 헬퍼
   const filterBlogs = (selectedTag) => {
+    currentSelectedTag = selectedTag;
     grid.innerHTML = ''; // 그리드 초기화
 
     // 선택된 태그에 맞는 블로그 필터링 ('all' 이면 전부 표시)
-    const filteredBlogs = selectedTag === 'all'
+    let filteredBlogs = selectedTag === 'all'
       ? blogs
       : blogs.filter(b => b._tags.includes(selectedTag));
 
-    filteredBlogs.forEach((blog, i) => {
+    // 아카이빙 로직: Archive가 비활성화 상태이고 최신 날짜가 존재하면,
+    // [최신 날짜]인 게시글만 노출. 단, 조회결과가 0개면 무조건 전체 노출.
+    let visibleBlogs = filteredBlogs;
+    if (!isArchiveVisible && latestDate) {
+      const todayBlogs = filteredBlogs.filter(b => b.date === latestDate);
+      if (todayBlogs.length > 0) {
+        visibleBlogs = todayBlogs;
+      }
+    }
+
+    // 아카이브 버튼 토글
+    const currentBtnArchive = document.getElementById('btn-show-archive');
+    if (currentBtnArchive) {
+      if (!isArchiveVisible && filteredBlogs.length > visibleBlogs.length) {
+        currentBtnArchive.style.display = 'inline-block';
+      } else {
+        currentBtnArchive.style.display = 'none';
+      }
+    }
+
+    visibleBlogs.forEach((blog, i) => {
       const card = document.createElement('article');
       card.className = `blog-card reveal visible`;
       card.style.transitionDelay = `${(i % 4) * 0.08}s`;
       card.dataset.cat = selectedTag === 'all' ? blog.category : selectedTag;
 
-      // 태그 출력 로직
       const tagsHtml = blog._tags.length > 0
         ? `<div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:12px;">` +
         blog._tags.map(t => `<span class="blog-cat" style="background:rgba(255,255,255,0.05); color:var(--text-2); font-size:0.75rem; padding:4px 8px;">#${t}</span>`).join('') +
@@ -269,10 +307,10 @@ function renderBlogs(blogs) {
     });
   };
 
-  // 4. 초기 렌더링 (전체)
+  // 5. 초기 렌더링 (전체 + 최신 날짜만)
   filterBlogs('all');
 
-  // 5. 탭 클릭 이벤트 리스너 등록
+  // 6. 탭 클릭 이벤트 리스너 등록
   tabsContainer.querySelectorAll('.tab').forEach(tab => {
     tab.addEventListener('click', (e) => {
       // 엑티브 클래스 변경
