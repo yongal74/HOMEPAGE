@@ -186,9 +186,9 @@ function analyzeCopilot(track, keywords) {
   }
   // Fallback (매칭 안 될 경우 가장 범용적인 세팅)
   if (track === 'existing') {
-    return { label: '기본 업무 자동화', desc: '반복적인 서류/데이터 작업의 n8n 파이프라인 구축', stack: ['Antigravity', 'n8n'] };
+    return { track, label: '기본 업무 자동화', desc: '반복적인 서류/데이터 작업의 n8n 파이프라인 구축', stack: ['Antigravity', 'n8n'] };
   } else {
-    return { label: '1인 지식 크리에이터', path: '개인 경험 기반 전자책/강의 판매 시스템', stack: ['Antigravity', 'Claude Code', 'Pencil'] };
+    return { track, label: '1인 지식 크리에이터', path: '개인 경험 기반 전자책/강의 판매 시스템', stack: ['Antigravity', 'Claude Code', 'Pencil'] };
   }
 }
 
