@@ -385,15 +385,6 @@
             "link": "https://www.aitimes.com/news/articleView.html?idxno=207652"
         },
         {
-            "id": "post-d2273835",
-            "category": "AI",
-            "categoryLabel": "AI",
-            "title": "OpenClaw Review 2025: Ultimate AI Agent WARNING! tech gadget",
-            "summary": "요약 실패 (API 오류)",
-            "date": "2026.03.06",
-            "link": "https://www.youtube.com/watch?v=TvhIfpQOe5s"
-        },
-        {
             "id": "post-643f1a02",
             "category": "AI",
             "categoryLabel": "AI",
@@ -401,33 +392,6 @@
             "summary": "요약 실패 (API 오류)",
             "date": "2026.03.06",
             "link": "https://www.youtube.com/watch?v=B6D8ApeLeg8"
-        },
-        {
-            "id": "post-205a91ad",
-            "category": "AI",
-            "categoryLabel": "AI",
-            "title": "AI Governance Innovations: 2025 Reflections &amp; the 2026 Roadmap",
-            "summary": "요약 실패 (API 오류)",
-            "date": "2026.03.05",
-            "link": "https://www.youtube.com/watch?v=ck58SuQ7q_o"
-        },
-        {
-            "id": "post-e374db03",
-            "category": "AI",
-            "categoryLabel": "AI",
-            "title": "AI Breakthrough That Changes Everything (New Features, Benchmarks &amp; Capabilities Explained)",
-            "summary": "요약 실패 (API 오류)",
-            "date": "2026.03.07",
-            "link": "https://www.youtube.com/watch?v=OjzdmDwkWOs"
-        },
-        {
-            "id": "post-55763b87",
-            "category": "AI",
-            "categoryLabel": "AI",
-            "title": "AI&#39;s Human Origin #Intelligence Built From Our #Knowledge #artificial #breakthrough #old #basic",
-            "summary": "요약 실패 (API 오류)",
-            "date": "2026.03.07",
-            "link": "https://www.youtube.com/watch?v=01MQYF2Coy8"
         },
         {
             "id": "post-6e1137b4",
@@ -502,24 +466,6 @@
             "link": "https://www.youtube.com/watch?v=6IhUa4nQ0eo"
         },
         {
-            "id": "post-ba7ae9fc",
-            "category": "TECH",
-            "categoryLabel": "테크",
-            "title": "🔥 Smart Learning Tech for 2025 | Next-Gen Gadgets for All Ages!#shorts #viralshorts #techshorts 139",
-            "summary": "요약 실패 (API 오류)",
-            "date": "2026.03.06",
-            "link": "https://www.youtube.com/watch?v=vt_KNvNobvU"
-        },
-        {
-            "id": "post-7c665b0d",
-            "category": "STK",
-            "categoryLabel": "미국증시",
-            "title": "How US- IRAN War Impact Indian Market? #stockmarket #investing #trading",
-            "summary": "요약 실패 (API 오류)",
-            "date": "2026.03.07",
-            "link": "https://www.youtube.com/watch?v=eiD2TmymLe4"
-        },
-        {
             "id": "post-f6e5dfd4",
             "category": "STK",
             "categoryLabel": "미국증시",
@@ -556,15 +502,6 @@
             "link": "https://www.youtube.com/watch?v=2AWn3ikNwHA"
         },
         {
-            "id": "post-8e1c93d7",
-            "category": "AUTO",
-            "categoryLabel": "자동화",
-            "title": "Can Someone Read Your N8N Workflow? 🤔",
-            "summary": "요약 실패 (API 오류)",
-            "date": "2026.03.06",
-            "link": "https://www.youtube.com/watch?v=1PY7w0Y7qvc"
-        },
-        {
             "id": "post-49b46790",
             "category": "AUTO",
             "categoryLabel": "자동화",
@@ -572,15 +509,6 @@
             "summary": "요약 실패 (API 오류)",
             "date": "2026.03.06",
             "link": "https://www.youtube.com/watch?v=oZ8j-75KL80"
-        },
-        {
-            "id": "post-278b8a41",
-            "category": "AUTO",
-            "categoryLabel": "자동화",
-            "title": "I Built an AI That Posts on LinkedIn for Me 🤖 #shorts #n8n",
-            "summary": "요약 실패 (API 오류)",
-            "date": "2026.03.06",
-            "link": "https://www.youtube.com/watch?v=RvD69ZW1ngE"
         },
         {
             "id": "post-3c4dbc8a",
@@ -598,33 +526,6 @@
             "title": "중소기업 자동화, 이제는 선택이 아닌 수익의 원천",
             "summary": "반복 업무 자동화로 연간 수천만 원을 절감한 실제 기업 사례와 ROI 분석을 공유합니다.",
             "date": "2026.02",
-            "link": "#"
-        },
-        {
-            "id": "post-02",
-            "category": "AX",
-            "categoryLabel": "AI 혁신",
-            "title": "GPT-4o로 비즈니스 프로세스를 혁신하는 5가지 방법",
-            "summary": "AI를 단순 도구가 아닌 비즈니스 파트너로 활용하는 전략적 접근법을 소개합니다.",
-            "date": "2026.01",
-            "link": "#"
-        },
-        {
-            "id": "post-03",
-            "category": "AUTO",
-            "categoryLabel": "자동화",
-            "title": "N8N으로 구현하는 마케팅 자동화 파이프라인",
-            "summary": "SNS 콘텐츠 수집부터 리드 관리까지, 코드 없이 구현하는 마케팅 자동화 가이드입니다.",
-            "date": "2026.01",
-            "link": "#"
-        },
-        {
-            "id": "post-04",
-            "category": "DX",
-            "categoryLabel": "디지털 전환",
-            "title": "1인 비즈니스 창업자들을 위한 Antigravity 툴 스택 입문",
-            "summary": "비개발자도 코어 로직을 다룰 수 있게 해주는 Antigravity 중심의 무적의 1인 창업 세팅 방법.",
-            "date": "2026.03",
             "link": "#"
         }
     ],
