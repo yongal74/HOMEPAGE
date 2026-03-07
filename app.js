@@ -114,91 +114,170 @@ tabs.forEach(tab => {
 });
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   자동화 프로세스 다이어그램 생성기
+   CMS 콘텐츠 로더 (저서, 블로그, 리소스)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-
-// 자동화 가능 키워드 패턴
-const AUTO_PATTERNS = [
-  { kw: ['수신', '받', '이메일', '메일', '알림'], icon: '📨', label: '자동 수신', hint: '이메일/슬랙 트리거 → N8N Webhook' },
-  { kw: ['입력', '기록', '저장', '등록', '작성'], icon: '💾', label: '자동 저장', hint: 'DB/스프레드시트 자동 기록 → Google Sheets API' },
-  { kw: ['변환', 'PDF', '엑셀', '문서', '파일'], icon: '🔄', label: '파일 자동 변환', hint: 'N8N HTTP Request → 파일 변환 API' },
-  { kw: ['발송', '전송', '공유', '배포', '업로드'], icon: '📤', label: '자동 발송', hint: 'N8N Email/Slack 노드 → 자동 발송' },
-  { kw: ['조회', '확인', '검색', '모니터링', '체크'], icon: '🔍', label: '자동 조회', hint: 'N8N Cron + HTTP → 자동 모니터링' },
-  { kw: ['분류', '정렬', '필터', '분석', '통계'], icon: '📊', label: 'AI 분류/분석', hint: 'GPT-4o API → 자동 분류·요약' },
-  { kw: ['승인', '결재', '확인', '검토'], icon: '✅', label: '승인 자동화', hint: 'N8N + Slack 버튼 → 원클릭 승인' },
-  { kw: ['알람', '리마인더', '스케줄', '일정'], icon: '⏰', label: '스케줄 자동화', hint: 'N8N Cron 트리거 → 자동 알림' },
-  { kw: ['복사', '이동', '클론', '동기화'], icon: '🔁', label: '데이터 동기화', hint: 'N8N → DB/API 양방향 동기화' },
-  { kw: ['보고', '보고서', '리포트', '정리'], icon: '📋', label: '자동 보고서', hint: 'N8N + GPT → 자동 리포트 생성' },
-];
-
-function analyzeStep(text) {
-  const lower = text.toLowerCase();
-  for (const p of AUTO_PATTERNS) {
-    if (p.kw.some(k => lower.includes(k))) {
-      return { ...p, canAuto: true };
-    }
+async function loadCMSData() {
+  try {
+    const res = await fetch('data/content.json');
+    if (!res.ok) throw new Error('CMS data not found');
+    const data = await res.json();
+    renderBlogs(data.blogs);
+    // TODO: 서적과 리소스 영역도 향후 렌더링에 연결
+  } catch (err) {
+    console.error('Failed to load CMS data:', err);
   }
-  return { icon: '👤', label: '수동 처리', hint: '단순화·표준화 후 자동화 검토', canAuto: false };
 }
 
-function generateDiagram(title, rawSteps) {
-  const steps = rawSteps
-    .split('\n')
-    .map(s => s.replace(/^\d+[\.\)]\s*/, '').trim())
-    .filter(s => s.length > 2);
+function renderBlogs(blogs) {
+  const grid = document.getElementById('blog-grid');
+  if (!grid || !blogs) return;
 
-  if (steps.length === 0) return '<p style="color:var(--text-3);font-size:.9rem;">단계를 입력해주세요.</p>';
+  // 기존 하드코딩된 내용 대신 JSON 데이터로만 채우기
+  grid.innerHTML = '';
 
-  const autoCount = steps.filter(s => analyzeStep(s).canAuto).length;
-  const ratio = Math.round((autoCount / steps.length) * 100);
+  blogs.forEach((blog, i) => {
+    const card = document.createElement('article');
+    card.className = `blog-card reveal visible`;
+    card.style.transitionDelay = `${(i % 4) * 0.08}s`;
+    card.dataset.cat = blog.category;
 
-  let html = `<div class="diagram">`;
-  html += `<p style="font-size:.8rem;font-weight:800;color:var(--text-3);margin-bottom:12px;text-transform:uppercase;letter-spacing:1px;">⚡ ${title || '업무 자동화 흐름도'}</p>`;
-
-  steps.forEach((step, i) => {
-    const info = analyzeStep(step);
-    const cls = info.canAuto ? 'auto' : 'manual';
-    const lblCls = info.canAuto ? 'auto-label' : 'manual-label';
-    html += `
-      <div class="d-node ${cls}">
-        <div class="d-icon">${info.icon}</div>
-        <div class="d-content">
-          <div class="d-label ${lblCls}">${info.label} ${info.canAuto ? '🤖' : '👤'}</div>
-          <div class="d-text">${step}</div>
-          <div style="font-size:.72rem;color:var(--text-3);margin-top:4px;">${info.hint}</div>
-        </div>
-      </div>`;
-    if (i < steps.length - 1) html += `<div class="d-arrow">↓</div>`;
+    card.innerHTML = `
+      <div class="blog-cat ${blog.category.toLowerCase()}">${blog.categoryLabel}</div>
+      <h3>${blog.title}</h3>
+      <p>${blog.summary}</p>
+      <div class="blog-footer">
+        <span class="blog-date">${blog.date}</span>
+        <a href="${blog.link}" class="blog-read">읽기 →</a>
+      </div>
+    `;
+    grid.appendChild(card);
   });
+}
 
-  html += `<div class="d-summary">
-    ✅ 자동화 가능 단계: <strong style="color:var(--cyan-light)">${autoCount}/${steps.length}건 (${ratio}%)</strong><br/>
-    💡 ${ratio >= 70 ? '높은 자동화율! N8N 워크플로우로 즉시 구현 가능합니다.' : ratio >= 40 ? '중간 수준의 자동화가 가능합니다. 프로젝트 의뢰를 권장합니다.' : '전략 컨설팅을 통한 프로세스 재설계를 권장합니다.'}<br/>
-    🚀 예상 절감 시간: <strong style="color:var(--purple-light)">월 ${Math.round(steps.length * autoCount * 2.5)}시간</strong>
-  </div>`;
-  html += '</div>';
+// 사이트 로드 시 CMS 데이터 호출
+window.addEventListener('DOMContentLoaded', loadCMSData);
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Antigravity 코파일럿 진단 (Dual-Track Algorithm)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+// 트랙 A: 기존 기업 아키타입
+const EXISTING_BIZ_PATTERNS = [
+  { kw: ['영업', '세일즈', '리드', '연락처', '명함'], label: '리드 관리 자동화', desc: '퍼널별 잠재고객 자동 수집 및 후속 메일 발송 셋업', stack: ['Antigravity', 'n8n', 'Zapier (Fallback)'] },
+  { kw: ['마케팅', '콘텐츠', 'SNS', '광고', '블로그'], label: '콘텐츠/마케팅 자동화', desc: 'AI 기반 트렌드 수집부터 SNS 자동 발행까지', stack: ['Antigravity', 'n8n', 'Remotion', 'NotebookLM'] },
+  { kw: ['CS', '고객지원', '문의', '상담', '환불'], label: '고객지원(CS) 자동화', desc: 'FAQ 및 1차 문의 자동 분류·답변 에이전트 구축', stack: ['Antigravity', 'Claude Code', 'Intercom'] }
+];
+
+// 트랙 B: 1인 기업 아키타입
+const SOLO_BIZ_PATTERNS = [
+  { kw: ['기획', '전략', 'PM', '컨설팅'], label: '프리미엄 지식 컨설팅', path: 'B2B 진단 워크숍 + 자문 서비스', stack: ['Antigravity', 'Pencil (제안서)', 'Claude Code'] },
+  { kw: ['개발', '데이터', 'IT', '분석'], label: '마이크로 SaaS / 툴킷', path: '비개발자용 노코드/자동화 템플릿 구독 모델', stack: ['Antigravity', 'n8n', 'v0', 'Claude Code'] },
+  { kw: ['교육', '강의', '디자인', '글쓰기', '크리에이터'], label: '콘텐츠/커뮤니티 비즈니스', path: '자동화된 뉴스레터 및 코호트 강의', stack: ['Antigravity', 'beehiiv', 'Remotion', 'NotebookLM'] }
+];
+
+function analyzeCopilot(track, keywords) {
+  const lowerKw = keywords.toLowerCase();
+  const patterns = track === 'existing' ? EXISTING_BIZ_PATTERNS : SOLO_BIZ_PATTERNS;
+
+  for (const p of patterns) {
+    if (p.kw.some(k => lowerKw.includes(k))) {
+      return { ...p, track };
+    }
+  }
+  // Fallback (매칭 안 될 경우 가장 범용적인 세팅)
+  if (track === 'existing') {
+    return { label: '기본 업무 자동화', desc: '반복적인 서류/데이터 작업의 n8n 파이프라인 구축', stack: ['Antigravity', 'n8n'] };
+  } else {
+    return { label: '1인 지식 크리에이터', path: '개인 경험 기반 전자책/강의 판매 시스템', stack: ['Antigravity', 'Claude Code', 'Pencil'] };
+  }
+}
+
+function renderCopilotResult(result) {
+  let html = `<div class="copilot-result fade-in" style="background: rgba(20,20,30,0.8); padding: 24px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); margin-top: 24px;">`;
+
+  if (result.track === 'existing') {
+    html += `<p style="color:var(--cyan-light); font-size: 0.85rem; font-weight:800; margin-bottom:8px;">[🚀 기존 기업 자동화 진단]</p>`;
+    html += `<h3 style="margin-bottom: 12px; color:white;">${result.label}</h3>`;
+    html += `<p style="color:var(--text-2); font-size:0.95rem; margin-bottom: 20px;">${result.desc}</p>`;
+  } else {
+    html += `<p style="color:var(--purple-light); font-size: 0.85rem; font-weight:800; margin-bottom:8px;">[🚀 1인 비즈니스 설계 진단]</p>`;
+    html += `<h3 style="margin-bottom: 12px; color:white;">${result.label}</h3>`;
+    html += `<p style="color:var(--text-2); font-size:0.95rem; margin-bottom: 20px;">추천 루트: <strong>${result.path}</strong></p>`;
+  }
+
+  // Antigravity Stack Visualization
+  html += `
+    <div style="background: rgba(0,0,0,0.4); border-radius: 12px; padding: 16px;">
+      <p style="font-size: 0.8rem; color:var(--text-3); margin-bottom: 12px; font-weight: 600;">THE ANTIGRAVITY STACK</p>
+      <div style="display:flex; flex-wrap:wrap; gap:8px;">
+        ${result.stack.map(s => {
+    const isCore = s.includes('Antigravity');
+    const bg = isCore ? 'linear-gradient(45deg, var(--cyan), var(--purple))' : 'rgba(255,255,255,0.1)';
+    const color = isCore ? '#fff' : 'var(--text-1)';
+    const fw = isCore ? '800' : '400';
+    return `<span style="padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; background:${bg}; color:${color}; font-weight:${fw};">${s}</span>`;
+  }).join('')}
+      </div>
+    </div>
+  `;
+  html += `</div>`;
   return html;
 }
 
-const generateBtn = document.getElementById('generate-btn');
-const diagramArea = document.getElementById('diagram-area');
-const processInput = document.getElementById('process-input');
-const processTitle = document.getElementById('process-title');
+// 이벤트 핸들링: 진단 트랙 선택 및 결과 생성
+document.addEventListener('DOMContentLoaded', () => {
+  const btnGenerate = document.getElementById('generate-btn');
+  const area = document.getElementById('diagram-area');
+  const btnTrackExisting = document.getElementById('track-existing');
+  const btnTrackSolo = document.getElementById('track-solo');
+  const inputLabel = document.getElementById('input-label-dynamic');
+  const inputArea = document.getElementById('process-input');
 
-generateBtn?.addEventListener('click', () => {
-  const steps = processInput?.value.trim() || '';
-  const title = processTitle?.value.trim() || '';
-  if (!steps) {
-    diagramArea.innerHTML = '<p style="color:#f87171;text-align:center;padding:24px">업무 단계를 입력해주세요.</p>';
-    return;
+  let currentTrack = 'solo'; // Default
+
+  // Track selection logic
+  function selectTrack(track) {
+    currentTrack = track;
+    if (track === 'existing') {
+      btnTrackExisting.classList.replace('btn-ghost', 'btn-primary');
+      btnTrackSolo.classList.replace('btn-primary', 'btn-ghost');
+      inputLabel.innerText = '2. 핵심 비즈니스 고민 (병목 구간, 수작업 루틴 등) *';
+      inputArea.placeholder = '예: 매일 들어오는 고객 문의 답변과 영업 리드 관리가 너무 오래 걸립니다.';
+    } else {
+      btnTrackSolo.classList.replace('btn-ghost', 'btn-primary');
+      btnTrackExisting.classList.replace('btn-primary', 'btn-ghost');
+      inputLabel.innerText = '2. 나의 커리어 자산 (직무, 스킬, 이력, 관심사) *';
+      inputArea.placeholder = '예: 7년차 BX 디자이너, 노코드 툴 관심 많음, 전자책 출판 경험 있음';
+    }
   }
-  generateBtn.disabled = true;
-  generateBtn.innerHTML = '<span>분석 중...</span><span class="btn-icon">⏳</span>';
-  setTimeout(() => {
-    diagramArea.innerHTML = generateDiagram(title, steps);
-    generateBtn.disabled = false;
-    generateBtn.innerHTML = '<span>자동화 흐름도 생성</span><span class="btn-icon">→</span>';
-  }, 800);
+
+  // Bind click events
+  if (btnTrackExisting) btnTrackExisting.addEventListener('click', () => selectTrack('existing'));
+  if (btnTrackSolo) btnTrackSolo.addEventListener('click', () => selectTrack('solo'));
+
+  // Initialize UI state
+  selectTrack('solo');
+
+  // Generate logic
+  if (btnGenerate && area) {
+    btnGenerate.addEventListener('click', () => {
+      const val = inputArea?.value || '';
+      if (!val.trim()) {
+        area.innerHTML = '<p style="color:#f87171;text-align:center;padding:24px">핵심 키워드를 입력해주세요.</p>';
+        return;
+      }
+
+      btnGenerate.disabled = true;
+      btnGenerate.innerHTML = '<span>분석 중...</span><span class="btn-icon">⏳</span>';
+
+      setTimeout(() => {
+        const res = analyzeCopilot(currentTrack, val);
+        area.innerHTML = renderCopilotResult(res);
+        btnGenerate.disabled = false;
+        btnGenerate.innerHTML = '<span>내 비즈니스 스택 확인하기</span><span class="btn-icon">→</span>';
+      }, 1000);
+    });
+  }
 });
 
 /* ── 연락처 폼 ── */
@@ -210,11 +289,11 @@ contactForm?.addEventListener('submit', e => {
   btn.textContent = '전송 중...';
   setTimeout(() => {
     contactForm.innerHTML = `
-      <div id="form-success" style="display:block">
+    < div id = "form-success" style = "display:block" >
         <div style="font-size:3rem;margin-bottom:16px">✅</div>
         <p style="font-size:1.2rem;font-weight:800;color:#6ee7b7;margin-bottom:8px">문의가 접수되었습니다!</p>
         <p style="font-size:.9rem;color:var(--text-2)">24시간 이내에 회신드리겠습니다.</p>
-      </div>`;
+      </div > `;
   }, 1200);
 });
 

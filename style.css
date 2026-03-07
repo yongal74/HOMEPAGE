@@ -866,25 +866,20 @@ button {
   color: var(--cyan-light);
 }
 
-/* ━━━ AUTOMATION ━━━ */
+/* ━━━ AUTOMATION / COPILOT ━━━ */
 .auto-steps {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
   margin-bottom: 64px;
-  flex-wrap: wrap;
 }
 
 .auto-step {
   text-align: center;
-  padding: 32px 28px;
+  padding: 32px 24px;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  flex: 1;
-  min-width: 180px;
-  max-width: 220px;
   position: relative;
   transition: all var(--transition);
 }
@@ -896,8 +891,8 @@ button {
 }
 
 .step-icon {
-  font-size: 2rem;
-  margin-bottom: 8px;
+  font-size: 2.5rem;
+  margin-bottom: 12px;
 }
 
 .step-num {
@@ -924,12 +919,8 @@ button {
 }
 
 .step-connector {
-  width: 40px;
-  height: 2px;
-  flex-shrink: 0;
-  align-self: center;
-  background: linear-gradient(90deg, var(--purple), var(--cyan));
-  margin: 0 -4px;
+  display: none;
+  /* Hide default connector in new grid layout, or use media queries if line is needed */
 }
 
 /* 자동화 진단 도구 */
@@ -959,9 +950,9 @@ button {
 }
 
 .tool-body {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+  min-height: auto;
 }
 
 .tool-input-area {
@@ -969,13 +960,13 @@ button {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 .tool-input-area label {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  color: var(--text-2);
+  color: var(--text-1);
 }
 
 .tool-input-area input,
@@ -984,8 +975,8 @@ button {
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   color: var(--text-1);
-  padding: 12px 14px;
-  font-size: 0.9rem;
+  padding: 14px 16px;
+  font-size: 0.95rem;
   resize: vertical;
   transition: border-color var(--transition);
 }
@@ -993,7 +984,20 @@ button {
 .tool-input-area input:focus,
 .tool-input-area textarea:focus {
   outline: none;
-  border-color: var(--purple);
+  border-color: var(--purple-light);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.tool-output-area {
+  padding: 32px;
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.copilot-result {
+  animation: fadeIn 0.4s ease forwards;
 }
 
 .tool-input-area input::placeholder,

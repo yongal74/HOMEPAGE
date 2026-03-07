@@ -1,0 +1,98 @@
+{
+    "books": [
+        {
+            "id": "book-01",
+            "title": "기업의 판도를 흔드는 AI 초혁신",
+            "series": "AI Strategy Series 01",
+            "coverImg": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791164847235.jpg",
+            "description": "ChatGPT와 생성형 AI 시대, 중소기업이 AI를 어떻게 도입하고 활용할 것인가? 실전 사례와 함께 기업 혁신의 로드맵을 제시합니다.",
+            "tags": [
+                "AI 전략",
+                "기업 혁신",
+                "AX",
+                "생성형 AI"
+            ],
+            "link": "https://www.kyobobook.co.kr/product/detailViewKor.laf?barcode=9791194534457",
+            "themeColor": "cyan"
+        },
+        {
+            "id": "book-02",
+            "title": "K-스테이블코인 금융운영체제의 대전환",
+            "series": "Blockchain Finance Series 01",
+            "coverImg": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791194534457.jpg",
+            "description": "한국형 스테이블코인이 가져올 금융 패러다임의 변화. 블록체인 기반 금융 인프라의 현재와 미래를 심층 분석합니다.",
+            "tags": [
+                "블록체인",
+                "스테이블코인",
+                "금융혁신",
+                "IX"
+            ],
+            "link": "https://www.kyobobook.co.kr/product/detailViewKor.laf?barcode=9791164847235",
+            "themeColor": "teal"
+        }
+    ],
+    "blogs": [
+        {
+            "id": "post-01",
+            "category": "AUTO",
+            "categoryLabel": "자동화",
+            "title": "중소기업 자동화, 이제는 선택이 아닌 수익의 원천",
+            "summary": "반복 업무 자동화로 연간 수천만 원을 절감한 실제 기업 사례와 ROI 분석을 공유합니다.",
+            "date": "2026.02",
+            "link": "#"
+        },
+        {
+            "id": "post-02",
+            "category": "AX",
+            "categoryLabel": "AI 혁신",
+            "title": "GPT-4o로 비즈니스 프로세스를 혁신하는 5가지 방법",
+            "summary": "AI를 단순 도구가 아닌 비즈니스 파트너로 활용하는 전략적 접근법을 소개합니다.",
+            "date": "2026.01",
+            "link": "#"
+        },
+        {
+            "id": "post-03",
+            "category": "AUTO",
+            "categoryLabel": "자동화",
+            "title": "N8N으로 구현하는 마케팅 자동화 파이프라인",
+            "summary": "SNS 콘텐츠 수집부터 리드 관리까지, 코드 없이 구현하는 마케팅 자동화 가이드입니다.",
+            "date": "2026.01",
+            "link": "#"
+        },
+        {
+            "id": "post-04",
+            "category": "DX",
+            "categoryLabel": "디지털 전환",
+            "title": "1인 비즈니스 창업자들을 위한 Antigravity 툴 스택 입문",
+            "summary": "비개발자도 코어 로직을 다룰 수 있게 해주는 Antigravity 중심의 무적의 1인 창업 세팅 방법.",
+            "date": "2026.03",
+            "link": "#"
+        }
+    ],
+    "resources": [
+        {
+            "id": "res-01",
+            "type": "템플릿",
+            "title": "1인 지식 창업자 초기 세팅 워크북 (PDF)",
+            "description": "이력서 분석부터 포지셔닝 도출까지 혼자 해볼 수 있는 액션 템플릿입니다.",
+            "icon": "📄",
+            "link": "#"
+        },
+        {
+            "id": "res-02",
+            "type": "자동화",
+            "title": "초보자용 N8N 리드 수집 + 알림 기본 워크플로우",
+            "description": "JSON 파일을 다운로드해 N8N에 임포트하면 즉시 실행 가능한 기본 뼈대 코드입니다.",
+            "icon": "⚡",
+            "link": "#"
+        },
+        {
+            "id": "res-03",
+            "type": "노션",
+            "title": "외주 컨설팅 프로젝트 관리 노션 대시보드",
+            "description": "고객사별 진행 상황과 미팅 노트를 체계적으로 관리하는 노션 템플릿.",
+            "icon": "📚",
+            "link": "#"
+        }
+    ]
+}
