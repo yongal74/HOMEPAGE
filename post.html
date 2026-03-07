@@ -105,9 +105,9 @@
     <!-- NAVBAR -->
     <nav id="navbar">
         <div class="nav-inner">
-            <a href="/index.html" class="logo">장우경<span>.</span></a>
+            <a href="index.html" class="logo">장우경<span>.</span></a>
             <ul class="nav-links">
-                <li><a href="/index.html#blog">블로그 목록으로 돌아가기</a></li>
+                <li><a href="index.html#blog">블로그 목록으로 돌아가기</a></li>
             </ul>
         </div>
     </nav>
@@ -134,7 +134,7 @@
             const container = document.getElementById('post-container');
 
             if (!postId) {
-                container.innerHTML = '<div style="text-align:center; padding: 100px 0;"><h3>게시물을 찾을 수 없습니다.</h3><a href="/index.html#blog" class="btn-primary" style="margin-top:20px;">목록으로 돌아가기</a></div>';
+                container.innerHTML = '<div style="text-align:center; padding: 100px 0;"><h3>게시물을 찾을 수 없습니다.</h3><a href="index.html#blog" class="btn-primary" style="margin-top:20px;">목록으로 돌아가기</a></div>';
                 return;
             }
 
@@ -146,7 +146,7 @@
                 const post = data.blogs.find(b => b.id === postId);
 
                 if (!post) {
-                    container.innerHTML = '<div style="text-align:center; padding: 100px 0;"><h3>삭제되었거나 존재하지 않는 게시물입니다.</h3><a href="/index.html#blog" class="btn-primary" style="margin-top:20px;">목록으로 돌아가기</a></div>';
+                    container.innerHTML = '<div style="text-align:center; padding: 100px 0;"><h3>삭제되었거나 존재하지 않는 게시물입니다.</h3><a href="index.html#blog" class="btn-primary" style="margin-top:20px;">목록으로 돌아가기</a></div>';
                     return;
                 }
 
@@ -177,14 +177,14 @@
             </div>
             
             <div class="post-actions">
-              <a href="/index.html#blog" class="btn-back">← 전체 목록으로</a>
+              <a href="index.html#blog" class="btn-back">← 전체 목록으로</a>
               ${post.original_link ? `<a href="${post.original_link}" target="_blank" class="btn-primary" style="padding:10px 24px; font-size:0.9rem;">원문(영어) 보러가기 👉</a>` : ''}
             </div>
           </article>
         `;
             } catch (err) {
                 console.error(err);
-                container.innerHTML = '<div style="text-align:center; padding: 100px 0;"><h3>데이터를 불러오는 중 오류가 발생했습니다.</h3><a href="/index.html#blog" class="btn-primary" style="margin-top:20px;">목록으로 돌아가기</a></div>';
+                container.innerHTML = '<div style="text-align:center; padding: 100px 0;"><h3>데이터를 불러오는 중 오류가 발생했습니다.</h3><a href="index.html#blog" class="btn-primary" style="margin-top:20px;">목록으로 돌아가기</a></div>';
             }
         });
     </script>
