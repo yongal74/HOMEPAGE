@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>장우경 | AI 자동화 전략가 · 저자</title>
+  <meta name="description" content="AI 초혁신·K-스테이블코인 저자. AX·DX·IX 전략과 중소기업 자동화 컨설팅 전문가 장우경의 공식 홈페이지." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Inter:wght@300;400;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=3" />
+</head>
+
+<body>
+
+  <!-- ━━━ NAVBAR ━━━ -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="logo">장우경<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">소개</a></li>
+        <li><a href="#books">저서</a></li>
+        <li><a href="#resources">학습 자료</a></li>
+        <li><a href="#blog">블로그</a></li>
+        <li><a href="#automation">Career-to-Biz Copilot</a></li>
+        <li><a href="#contact" class="btn-nav">연락하기</a></li>
+      </ul>
+      <button id="menu-toggle" aria-label="메뉴">☰</button>
+    </div>
+    <div id="mobile-menu">
+      <a href="#about">소개</a>
+      <a href="#books">저서</a>
+      <a href="#resources">학습 자료</a>
+      <a href="#blog">블로그</a>
+      <a href="#automation">Career-to-Biz Copilot</a>
+      <a href="#contact">연락하기</a>
+    </div>
+  </nav>
+
+  <!-- ━━━ HERO ━━━ -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="particles" id="particles"></div>
+    <div class="hero-content">
+      <div class="badge fade-in">Career-to-Biz Copilot</div>
+      <h1 class="fade-in delay-1">당신의 비즈니스를<br /><span class="gradient-text">AI 자동화</span>로 혁신합니다</h1>
+      <p class="hero-sub fade-in delay-2">
+        <strong>AX · DX · IX 전략 컨설팅</strong> ⎪
+        <strong>AI 솔로프리너 전문가</strong> ⎪
+        <strong>n8n 자동화 전문가</strong><br />
+        📚 저서 4권 (곧 3권 출간 및 '5000만 AI 솔로프리너 시대' 제 4권 발간 예정)
+      </p>
+
+      <!-- Dual-Track CTAs -->
+      <div class="hero-cta fade-in delay-3" style="display:flex; flex-direction:column; gap:16px; align-items:center;">
+        <div style="display:flex; gap:16px; flex-wrap:wrap; justify-content:center;">
+          <a href="#automation" class="btn-primary"
+            style="background:linear-gradient(135deg, var(--cyan), var(--cyan-dark)); box-shadow:0 8px 32px rgba(45,212,191,0.3)">
+            [기존 사업자] 내 비즈니스 자동화 진단하기
+          </a>
+          <a href="#automation" class="btn-primary"
+            style="background:linear-gradient(135deg, var(--purple), var(--purple-dark)); box-shadow:0 8px 32px rgba(167,139,250,0.3)">
+            [예비 창업자] 1인 비즈니스 설계 시작하기
+          </a>
+        </div>
+        <a href="#books" class="btn-ghost" style="font-size: 0.9rem;">→ 작가의 저서 및 컬럼 보기</a>
+      </div>
+
+      <div class="hero-stats fade-in delay-4">
+        <div class="stat"><span class="stat-num">N8N</span><span class="stat-label">Automation</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">AI</span><span class="stat-label">Copilot</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">SaaS</span><span class="stat-label">Architecture</span></div>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <span>스크롤</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- ━━━ ABOUT ━━━ -->
+  <section id="about" class="section section-alt">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-avatar reveal">
+          <div class="profile-photo-wrap">
+            <img src="profile.jpg" alt="장우경 프로필 사진" class="profile-photo" />
+          </div>
+          <div class="avatar-badges">
+            <span class="av-badge" style="background:#1F3864; color:white;">🎯 전략·컨설팅</span>
+            <span class="av-badge" style="background:#2E74B5; color:white;">🚀 솔로프리너</span>
+            <span class="av-badge" style="background:#ff6d5a; color:white;">⚡ n8n 전문가</span>
+            <span class="av-badge" style="background:#222; color:white;">📚 저자 (4권)</span>
+          </div>
+        </div>
+        <div class="about-content reveal">
+          <p class="section-label">About</p>
+          <h2>안녕하세요,<br /><span class="gradient-text">장우경</span>입니다</h2>
+          <p class="about-desc">
+            비즈니스의 패러다임이 바뀌는 지금, <strong>AX(AI Transformation) · DX(Digital Transformation) · IX(Innovation
+              Transformation)</strong>는 선택이 아닌 생존의 조건입니다.<br /><br />
+            저는 AI 기반의 자동화 아키텍처 코파일럿 구축을 통해, 중소기업의 병목을 해결하고 1인 지식 창업가(Solopreneur)의 폭발적인 성장을 돕는 전략가입니다.
+          </p>
+          <div class="about-highlights">
+            <div class="highlight-item">
+              <span class="hi-icon">🎯</span>
+              <div>
+                <strong>AX·DX·IX 전략 마스터플랜</strong>
+                <p>불필요한 수작업을 없애고 시스템으로 일하는 기업 로드맵 수립</p>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <span class="hi-icon">🚀</span>
+              <div>
+                <strong>AI 네이티브 솔로프리너 코파일럿</strong>
+                <p>개인의 경험과 지식을 자본으로 변환하는 1인 비즈니스 설계</p>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <span class="hi-icon">⚡</span>
+              <div>
+                <strong>n8n 기반 초자동화(Hyperautomation)</strong>
+                <p>A부터 Z까지 끊김없는 파이프라인(Antigravity Stack) 구축</p>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <span class="hi-icon">📖</span>
+              <div>
+                <strong>베스트셀러 저자 (총 4권 출간 및 예정)</strong>
+                <p>AI 혁신과 '5000만 AI 솔로프리너 시대'를 이끄는 인사이트</p>
+              </div>
+            </div>
+          </div>
+          <a href="#contact" class="btn-primary">문의하기 →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━ BOOKS ━━━ -->
+  <section id="books" class="section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">저서</p>
+        <h2>혁신의 지도를 그리다</h2>
+        <p class="section-sub">AI와 블록체인이 뒤바꾸는 비즈니스 패러다임을 탐구합니다</p>
+      </div>
+      <div class="books-grid" id="books-grid">
+        <!-- 동적 렌더링 (app.js) -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━ RESOURCES (학습 자료/템플릿) ━━━ -->
+  <section id="resources" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">학습 자료</p>
+        <h2>Antigravity 툴 스택 리소스</h2>
+        <p class="section-sub">1인 지식 창업과 비즈니스 자동화를 위한 실전 템플릿과 노하우</p>
+      </div>
+      <div class="resources-grid" id="resources-grid">
+        <!-- 동적 렌더링 (app.js) -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━ BLOG ━━━ -->
+  <section id="blog" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">블로그</p>
+        <h2>인사이트를 공유합니다</h2>
+        <p class="section-sub">AX · DX · IX 그리고 자동화 — 중소기업의 성장 엔진을 탐구합니다</p>
+      </div>
+
+      <div class="category-tabs" id="category-tabs">
+        <!-- 동적 렌더링 (app.js) -->
+      </div>
+
+      <div class="blog-grid" id="blog-grid">
+        <!-- 동적 렌더링 (app.js) -->
+      </div>
+
+      <div id="blog-archive-container" style="text-align: center; margin-top: 50px;">
+        <button id="btn-show-archive" class="btn-ghost"
+          style="padding: 12px 30px; font-size: 1rem; border-radius: 30px; display: none;">이전 뉴스 아카이브 불러오기 📚</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ━━━ CAREER-TO-BIZ COPILOT (ASSESSMENT) ━━━ -->
+  <section id="automation" class="section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Career-to-Biz Copilot</p>
+        <h2>당신의 비즈니스 루트를<br /><span class="gradient-text">설계해드립니다</span></h2>
+        <p class="section-sub">이력서와 관심사를 기반으로 가장 빠르고 강력한 Antigravity 스택을 제안합니다</p>
+      </div>
+
+      <div class="auto-steps" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="auto-step reveal">
+          <div class="step-icon">🕵️‍♂️</div>
+          <div class="step-num">01</div>
+          <h4>트랙 선택</h4>
+          <p>기존 비즈니스 최적화 vs 새로운 1인 창업</p>
+        </div>
+        <div class="step-connector"></div>
+        <div class="auto-step reveal">
+          <div class="step-icon">💡</div>
+          <div class="step-num">02</div>
+          <h4>이력/관심사 분석</h4>
+          <p>핵심 키워드로 최적의 아키타입 매칭</p>
+        </div>
+        <div class="step-connector"></div>
+        <div class="auto-step reveal">
+          <div class="step-icon">🚀</div>
+          <div class="step-num">03</div>
+          <h4>Antigravity 스택 도출</h4>
+          <p>즉시 실행 가능한 노코드/AI 툴킷 추천</p>
+        </div>
+      </div>
+
+      <!-- 인터랙티브 진단 도구 -->
+      <div class="auto-tool reveal">
+        <div class="tool-header">
+          <h3>🤖 Career-to-Biz Copilot</h3>
+          <p>어떤 트랙이 필요하신가요? 키워드를 입력하고 맞춤형 결과표를 받아보세요.</p>
+        </div>
+        <div class="tool-body" style="flex-direction: column; gap: 24px;">
+
+          <!-- 1단계: 진단 트랙 선택 -->
+          <div class="copilot-step active" id="step-track" style="width: 100%;">
+            <label>1. 당신의 현 위치는 어디인가요? *</label>
+            <div style="display:flex; gap: 16px; margin-top: 12px; margin-bottom: 24px;">
+              <button class="btn-ghost" data-track="existing"
+                style="flex:1; border-color:var(--cyan); color:var(--cyan);">기존 비즈니스 자동화 (B2B/B2C)</button>
+              <button class="btn-ghost" data-track="solo"
+                style="flex:1; border-color:var(--purple); color:var(--purple);">1인 지식 창업 (솔로프리너)</button>
+            </div>
+          </div>
+
+          <!-- 2단계: 산업 및 직무 선택 (기존 비즈니스용) -->
+          <div class="copilot-step" id="step-industry" style="width: 100%; display: none;">
+            <label>2. 소속된 산업 및 업무 분야를 알려주세요 *</label>
+            <div style="display:flex; flex-direction:column; gap: 16px; margin-top: 12px; margin-bottom: 24px;">
+              <select id="select-industry" class="form-select">
+                <option value="">산업군 선택</option>
+                <!-- 동적 렌더링 -->
+              </select>
+              <select id="select-category" class="form-select" disabled>
+                <option value="">세부 업무 카테고리 선택</option>
+                <!-- 동적 렌더링 -->
+              </select>
+            </div>
+            <button id="btn-next-to-task" class="btn-primary" style="width: 100%;" disabled>다음 단계로 →</button>
+          </div>
+
+          <!-- 3단계: 단위 사업 및 고민 선택 (기존 비즈니스용) -->
+          <div class="copilot-step" id="step-painpoint" style="width: 100%; display: none;">
+            <label>3. 가장 자동화가 시급한 업무와 고민은 무엇인가요? *</label>
+            <div style="display:flex; flex-direction:column; gap: 16px; margin-top: 12px; margin-bottom: 24px;">
+              <select id="select-task" class="form-select">
+                <option value="">해결하고 싶은 단위 업무 선택</option>
+                <!-- 동적 렌더링 -->
+              </select>
+              <div id="painpoint-radio-group"
+                style="display: flex; flex-direction: column; gap: 8px; margin-top: 12px;">
+                <!-- 동적 라디오 버튼 렌더링 -->
+              </div>
+            </div>
+            <div style="display:flex; gap: 16px;">
+              <button id="btn-back-to-industry" class="btn-ghost" style="flex:1;">← 뒤로가기</button>
+              <button id="btn-generate-existing" class="btn-primary" style="flex:2;" disabled>솔루션 진단 완료하기 🚀</button>
+            </div>
+          </div>
+
+          <!-- 2단계: 솔로프리너용 입력 -->
+          <div class="copilot-step" id="step-solo-input" style="width: 100%; display: none;">
+            <label>2. 나의 커리어 자산 (직무, 스킬, 이력, 관심사) *</label>
+            <textarea id="process-input-solo" rows="3" placeholder="예: 7년차 BX 디자이너, 노코드 툴 관심 많음, 전자책 출판 경험 있음"
+              style="margin-top: 12px; width: 100%; padding: 12px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 8px;"></textarea>
+            <div style="display:flex; gap: 16px; margin-top: 24px;">
+              <button id="btn-back-to-track" class="btn-ghost" style="flex:1;">← 뒤로가기</button>
+              <button id="btn-generate-solo" class="btn-primary" style="flex:2;">내 비즈니스 스택 확인하기 🚀</button>
+            </div>
+          </div>
+
+          <!-- 결과 영역 -->
+          <div class="tool-output-area" id="diagram-area" style="width: 100%; min-height: 200px; display: none;">
+            <!-- 동적 렌더링 -->
+          </div>
+          <div id="diagram-placeholder-initial" class="diagram-placeholder" style="width: 100%;">
+            <div class="placeholder-icon">⚙️</div>
+            <p>단계를 완료하시면<br />최적의 Antigravity 템플릿/스택이 설계됩니다</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 패키지 -->
+      <div class="packages-grid">
+        <div class="package-card reveal">
+          <div class="pkg-badge">Basic</div>
+          <h4>온라인 진단 & 셋업 가이드</h4>
+          <div class="pkg-price">₩99,000</div>
+          <ul>
+            <li>✅ 이력서 기반 정밀 분석 리포트</li>
+            <li>✅ Antigravity 코어 스택 명세서</li>
+            <li>✅ 초기 셋업 옵시디언 가이드북</li>
+            <li>✅ 1주일 이메일 Q&A 지원</li>
+          </ul>
+          <a href="#contact" class="btn-ghost">신청하기</a>
+        </div>
+        <div class="package-card pkg-featured reveal">
+          <div class="pkg-badge featured">Pro</div>
+          <h4>1인 비즈니스 코파일럿 구축</h4>
+          <div class="pkg-price">₩1,500,000</div>
+          <ul>
+            <li>✅ <strong>1:1 아키타입 전략 온라인 워크숍 (2h)</strong></li>
+            <li>✅ Antigravity + n8n + Claude 기반 초기 로직 구축</li>
+            <li>✅ 리드 수집/결제 연동 파이프라인 세팅</li>
+            <li>✅ 월간 시스템 점검 (3개월)</li>
+            <li>✅ 커스텀 프롬프트 덱 제공</li>
+          </ul>
+          <a href="#contact" class="btn-primary">프로젝트 의뢰</a>
+        </div>
+        <div class="package-card reveal">
+          <div class="pkg-badge" style="background:var(--cyan); color:#000;">Enterprise</div>
+          <h4>B2B / B2G 파트너십</h4>
+          <div class="pkg-price">협의</div>
+          <ul>
+            <li>✅ 전사 자동화 로드맵 및 사내 교육</li>
+            <li>✅ 폐쇄망 기준 AI 툴 스택 설계</li>
+            <li>✅ 신사업 발굴 부트캠프 운영</li>
+            <li>✅ 임원진 대상 전략 워크숍</li>
+          </ul>
+          <a href="#contact" class="btn-ghost">파트너십 제안</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━ CONTACT ━━━ -->
+  <section id="contact" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Contact</p>
+        <h2>함께 시작해볼까요?</h2>
+        <p class="section-sub">자동화 프로젝트, 강연, 컨설팅 — 무엇이든 문의하세요</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <div class="contact-item">
+            <span class="contact-icon">📧</span>
+            <div>
+              <p class="contact-label">이메일</p>
+              <a href="mailto:contact@jangwookyung.com">contact@jangwookyung.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">💼</span>
+            <div>
+              <p class="contact-label">전문 분야</p>
+              <p>AI 자동화 · AX/DX 전략 · 강연 · 저술</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">🕐</span>
+            <div>
+              <p class="contact-label">응답 시간</p>
+              <p>문의 후 24시간 이내 회신</p>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="#" class="social-link">LinkedIn</a>
+            <a href="#" class="social-link">YouTube</a>
+            <a href="#" class="social-link">GitHub</a>
+          </div>
+        </div>
+        <form class="contact-form reveal" id="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label>이름 *</label>
+              <input type="text" name="name" placeholder="홍길동" required />
+            </div>
+            <div class="form-group">
+              <label>회사명</label>
+              <input type="text" name="company" placeholder="(주)예시기업" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>이메일 *</label>
+            <input type="email" name="email" placeholder="email@company.com" required />
+          </div>
+          <div class="form-group">
+            <label>문의 유형 *</label>
+            <select name="type">
+              <option value="">선택하세요</option>
+              <option value="automation">자동화 프로젝트 의뢰</option>
+              <option value="consulting">전략 컨설팅</option>
+              <option value="lecture">강연 요청</option>
+              <option value="book">저서 관련</option>
+              <option value="other">기타</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>문의 내용 *</label>
+            <textarea name="message" rows="5" placeholder="자동화하고 싶은 업무나 궁금한 점을 자유롭게 적어주세요." required></textarea>
+          </div>
+          <button type="submit" class="btn-primary full-width">
+            문의 보내기 →
+          </button>
+          <p class="form-note">* 모든 문의는 비밀이 보장됩니다</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━ FOOTER ━━━ -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-logo">장우경<span>.</span></p>
+        <p class="footer-copy">© 2026 장우경. 중소기업의 자동화는 수익의 원천입니다.</p>
+        <div class="footer-links">
+          <a href="#books">저서</a>
+          <a href="#blog">블로그</a>
+          <a href="#automation">자동화</a>
+          <a href="#contact">연락처</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js?v=3"></script>
+</body>
+
+</html>
