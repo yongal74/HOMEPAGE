@@ -1,0 +1,106 @@
+{
+    "industries": [
+        {
+            "id": "sme_general",
+            "name": "중소기업 전반",
+            "categories": [
+                {
+                    "id": "marketing",
+                    "name": "마케팅 (Marketing)",
+                    "tasks": [
+                        {
+                            "id": "m_01",
+                            "name": "SNS 콘텐츠 자동 발행",
+                            "painPoints": [
+                                "매번 각기 다른 SNS 플랫폼에 수동으로 로그인해서 올려야 함",
+                                "콘텐츠 업로드 일정을 자꾸 놓치거나 지연됨"
+                            ],
+                            "recommendedTemplate": "M-01: SNS 콘텐츠 자동 발행",
+                            "n8nOutput": "멀티채널 포스팅",
+                            "process": "스케줄 -> Sheets -> Claude 생성 -> Buffer/Meta 퍼블리싱"
+                        },
+                        {
+                            "id": "m_02",
+                            "name": "리드 수집-CRM 자동 등록",
+                            "painPoints": [
+                                "고객 문의 접수 후 영업팀 전달까지 시간이 오래 걸림",
+                                "수기로 CRM에 입력하다 보니 데이터가 누락되거나 오타가 발생함"
+                            ],
+                            "recommendedTemplate": "M-02: 리드 수집-CRM 자동 등록",
+                            "n8nOutput": "CRM 등록+담당자 메신저 통보",
+                            "process": "웹폼 제출(Typeform) -> HubSpot 연동 -> Slack 담당자 태그"
+                        }
+                    ]
+                },
+                {
+                    "id": "strategy",
+                    "name": "경영전략 (Strategy)",
+                    "tasks": [
+                        {
+                            "id": "s_01",
+                            "name": "주간 경영 대시보드 자동 생성",
+                            "painPoints": [
+                                "매주 금요일마다 각 부서에 데이터를 요청하고 취합하느라 야근함",
+                                "데이터 포맷이 달라 엑셀에서 일일이 가공해야 함"
+                            ],
+                            "recommendedTemplate": "S-01: 주간 경영 대시보드 자동 생성",
+                            "n8nOutput": "임원 주간 보고서 (PPT/PDF)",
+                            "process": "각 부서 DB 취합 -> Claude 요약 및 시각화 가이드 -> 문서 생성"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "finance_specialized",
+            "name": "금융 특화",
+            "categories": [
+                {
+                    "id": "banking",
+                    "name": "은행 (Banking)",
+                    "tasks": [
+                        {
+                            "id": "bk_01",
+                            "name": "여신 심사 서류 자동 수집-분류",
+                            "painPoints": [
+                                "대출 신청자가 제출한 서류가 다 있는지 눈으로 일일이 확인해야 함",
+                                "수작업 확인 과정에서 필수 서류 누락을 뒤늦게 발견함"
+                            ],
+                            "recommendedTemplate": "BK-01: 여신 심사 서류 자동 수집-분류",
+                            "n8nOutput": "여신 심사 준비 완전 자동화",
+                            "process": "신청서 수신 -> OCR 정보 추출 -> 필수 서류 체크리스트 대조 -> 심사팀 배정"
+                        },
+                        {
+                            "id": "bk_06",
+                            "name": "AML 이상 거래 자동 탐지-보고",
+                            "painPoints": [
+                                "의심 거래 모니터링 경보가 너무 많아 진성 리스크 파악이 지연됨",
+                                "STR 보고서 작성을 위해 여러 시스템의 데이터를 수작업으로 모아야 함"
+                            ],
+                            "recommendedTemplate": "BK-06: AML 이상 거래 자동 탐지-보고",
+                            "n8nOutput": "STR 보고서 자동 초안 및 준법감시팀 통보",
+                            "process": "거래 발생 -> 실시간 룰 엔진 -> 이상 패턴 Claude 분석 -> STR 초안 생성 -> 알림"
+                        }
+                    ]
+                },
+                {
+                    "id": "holding_company",
+                    "name": "금융지주 (Financial Holding Company)",
+                    "tasks": [
+                        {
+                            "id": "fh_01",
+                            "name": "자회사 경영실적 자동 통합 보고",
+                            "painPoints": [
+                                "각 자회사의 결산 속도가 달라 그룹 전체 실적 뷰를 적시에 확보하기 어려움",
+                                "자회사별 양식이 달라 지주사 차원에서 통합 리포팅에 많은 공수가 듦"
+                            ],
+                            "recommendedTemplate": "FH-01: 자회사 경영실적 자동 통합 보고",
+                            "n8nOutput": "그룹 통합 경영실적 대시보드",
+                            "process": "자회사 재무 API 연동 -> 핵심 지표 통합 프로세싱 -> Claude 주요 증감 해설 -> 그룹 경영진 보고"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

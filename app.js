@@ -327,59 +327,212 @@ function renderBlogs(blogs) {
 window.addEventListener('DOMContentLoaded', loadCMSData);
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Antigravity 코파일럿 진단 (Dual-Track Algorithm)
+   Antigravity 코파일럿 진단 (Dynamic JSON-based Algorithm)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
-// 트랙 A: 기존 기업 아키타입
-const EXISTING_BIZ_PATTERNS = [
-  { kw: ['영업', '세일즈', '리드', '연락처', '명함'], label: '리드 관리 자동화', desc: '퍼널별 잠재고객 자동 수집 및 후속 메일 발송 셋업', stack: ['Antigravity', 'n8n', 'Zapier (Fallback)'] },
-  { kw: ['마케팅', '콘텐츠', 'SNS', '광고', '블로그'], label: '콘텐츠/마케팅 자동화', desc: 'AI 기반 트렌드 수집부터 SNS 자동 발행까지', stack: ['Antigravity', 'n8n', 'Remotion', 'NotebookLM'] },
-  { kw: ['CS', '고객지원', '문의', '상담', '환불'], label: '고객지원(CS) 자동화', desc: 'FAQ 및 1차 문의 자동 분류·답변 에이전트 구축', stack: ['Antigravity', 'Claude Code', 'Intercom'] }
-];
+let copilotData = null;
 
-// 트랙 B: 1인 기업 아키타입
-const SOLO_BIZ_PATTERNS = [
-  { kw: ['기획', '전략', 'PM', '컨설팅'], label: '프리미엄 지식 컨설팅', path: 'B2B 진단 워크숍 + 자문 서비스', stack: ['Antigravity', 'Pencil (제안서)', 'Claude Code'] },
-  { kw: ['개발', '데이터', 'IT', '분석'], label: '마이크로 SaaS / 툴킷', path: '비개발자용 노코드/자동화 템플릿 구독 모델', stack: ['Antigravity', 'n8n', 'v0', 'Claude Code'] },
-  { kw: ['교육', '강의', '디자인', '글쓰기', '크리에이터'], label: '콘텐츠/커뮤니티 비즈니스', path: '자동화된 뉴스레터 및 코호트 강의', stack: ['Antigravity', 'beehiiv', 'Remotion', 'NotebookLM'] }
-];
+// 상태 관리
+let currentState = {
+  track: null,
+  industry: null,
+  category: null,
+  task: null,
+  painPoint: null
+};
 
-function analyzeCopilot(track, keywords) {
-  const lowerKw = keywords.toLowerCase();
-  const patterns = track === 'existing' ? EXISTING_BIZ_PATTERNS : SOLO_BIZ_PATTERNS;
+// DOM 요소 모음
+const ui = {
+  steps: {
+    track: document.getElementById('step-track'),
+    industry: document.getElementById('step-industry'),
+    painpoint: document.getElementById('step-painpoint'),
+    solo: document.getElementById('step-solo-input')
+  },
+  selects: {
+    industry: document.getElementById('select-industry'),
+    category: document.getElementById('select-category'),
+    task: document.getElementById('select-task')
+  },
+  buttons: {
+    trackBtns: document.querySelectorAll('#step-track .btn-ghost'),
+    nextToTask: document.getElementById('btn-next-to-task'),
+    backToIndustry: document.getElementById('btn-back-to-industry'),
+    generateExisting: document.getElementById('btn-generate-existing'),
+    backToTrackSolo: document.getElementById('btn-back-to-track'),
+    generateSolo: document.getElementById('btn-generate-solo')
+  },
+  radios: document.getElementById('painpoint-radio-group'),
+  area: document.getElementById('diagram-area'),
+  placeholder: document.getElementById('diagram-placeholder-initial')
+};
 
-  for (const p of patterns) {
-    if (p.kw.some(k => lowerKw.includes(k))) {
-      return { ...p, track };
-    }
-  }
-  // Fallback (매칭 안 될 경우 가장 범용적인 세팅)
-  if (track === 'existing') {
-    return { track, label: '기본 업무 자동화', desc: '반복적인 서류/데이터 작업의 n8n 파이프라인 구축', stack: ['Antigravity', 'n8n'] };
-  } else {
-    return { track, label: '1인 지식 크리에이터', path: '개인 경험 기반 전자책/강의 판매 시스템', stack: ['Antigravity', 'Claude Code', 'Pencil'] };
+// JSON 데이터 페칭
+async function loadCopilotData() {
+  try {
+    const res = await fetch(`data/copilot_data.json?t=${new Date().getTime()}`);
+    if (!res.ok) throw new Error('Copilot data not found');
+    copilotData = await res.json();
+    initExistingBusinessFlow();
+  } catch (err) {
+    console.error('Failed to load copilot data:', err);
   }
 }
 
-function renderCopilotResult(result) {
-  let html = `<div class="copilot-result fade-in" style="background: rgba(20,20,30,0.8); padding: 24px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); margin-top: 24px;">`;
+// ── 유틸: 스텝 전환 ──
+function showStep(stepName) {
+  Object.values(ui.steps).forEach(el => {
+    if (el) el.classList.remove('active');
+  });
+  if (ui.steps[stepName]) ui.steps[stepName].classList.add('active');
 
-  if (result.track === 'existing') {
-    html += `<p style="color:var(--cyan-light); font-size: 0.85rem; font-weight:800; margin-bottom:8px;">[🚀 기존 기업 자동화 진단]</p>`;
-    html += `<h3 style="margin-bottom: 12px; color:white;">${result.label}</h3>`;
-    html += `<p style="color:var(--text-2); font-size:0.95rem; margin-bottom: 20px;">${result.desc}</p>`;
-  } else {
-    html += `<p style="color:var(--purple-light); font-size: 0.85rem; font-weight:800; margin-bottom:8px;">[🚀 1인 비즈니스 설계 진단]</p>`;
-    html += `<h3 style="margin-bottom: 12px; color:white;">${result.label}</h3>`;
-    html += `<p style="color:var(--text-2); font-size:0.95rem; margin-bottom: 20px;">추천 루트: <strong>${result.path}</strong></p>`;
+  if (ui.area) ui.area.style.display = 'none';
+  if (ui.placeholder) ui.placeholder.style.display = 'flex';
+}
+
+// ── 로직: 기존 비즈니스 플로우 초기화 ──
+function initExistingBusinessFlow() {
+  if (!copilotData || !ui.selects.industry) return;
+
+  // 1. 산업 드롭다운 채우기
+  ui.selects.industry.innerHTML = '<option value="">산업군 선택</option>';
+  copilotData.existing_business.industries.forEach((ind, idx) => {
+    ui.selects.industry.innerHTML += `<option value="${idx}">${ind.industry_name}</option>`;
+  });
+
+  // 이벤트: 산업 선택 시 -> 카테고리 활성화
+  ui.selects.industry.addEventListener('change', (e) => {
+    const idx = e.target.value;
+    currentState.industry = idx !== "" ? copilotData.existing_business.industries[idx] : null;
+    currentState.category = null;
+    currentState.task = null;
+
+    ui.selects.category.innerHTML = '<option value="">세부 업무 카테고리 선택</option>';
+    ui.selects.task.innerHTML = '<option value="">해결하고 싶은 단위 업무 선택</option>';
+    ui.radios.innerHTML = '';
+    ui.buttons.nextToTask.disabled = true;
+
+    if (currentState.industry) {
+      ui.selects.category.disabled = false;
+      currentState.industry.categories.forEach((cat, cIdx) => {
+        ui.selects.category.innerHTML += `<option value="${cIdx}">${cat.category_name}</option>`;
+      });
+    } else {
+      ui.selects.category.disabled = true;
+      ui.selects.category.innerHTML = '<option value="">세부 업무 카테고리 선택 (산업군 먼저 선택)</option>';
+    }
+  });
+
+  // 이벤트: 카테고리 선택 시 -> '다음' 버튼 활성화
+  ui.selects.category.addEventListener('change', (e) => {
+    const idx = e.target.value;
+    if (idx !== "" && currentState.industry) {
+      currentState.category = currentState.industry.categories[idx];
+      ui.buttons.nextToTask.disabled = false;
+    } else {
+      currentState.category = null;
+      ui.buttons.nextToTask.disabled = true;
+    }
+  });
+
+  // 이벤트: '다음 단계로' 버튼 클릭 -> Task 선택 화면으로 이동
+  ui.buttons.nextToTask?.addEventListener('click', () => {
+    if (!currentState.category) return;
+    showStep('painpoint');
+
+    // Task 드롭다운 채우기
+    ui.selects.task.innerHTML = '<option value="">해결하고 싶은 단위 업무 선택</option>';
+    currentState.category.tasks.forEach((task, tIdx) => {
+      ui.selects.task.innerHTML += `<option value="${tIdx}">${task.task_name}</option>`;
+    });
+
+    ui.radios.innerHTML = '';
+    ui.buttons.generateExisting.disabled = true;
+  });
+
+  // 이벤트: 뒤로가기
+  ui.buttons.backToIndustry?.addEventListener('click', () => {
+    showStep('industry');
+  });
+
+  // 이벤트: Task 선택 시 -> Pain point 라디오 렌더링
+  ui.selects.task.addEventListener('change', (e) => {
+    const idx = e.target.value;
+    ui.radios.innerHTML = '';
+    ui.buttons.generateExisting.disabled = true;
+    currentState.painPoint = null;
+
+    if (idx !== "" && currentState.category) {
+      currentState.task = currentState.category.tasks[idx];
+
+      // 라디오 버튼 렌더링
+      if (currentState.task.pain_points) {
+        currentState.task.pain_points.forEach((pp, pIdx) => {
+          const lbl = document.createElement('label');
+          lbl.className = 'painpoint-radio';
+          lbl.innerHTML = `
+            <input type="radio" name="painpoint" value="${pIdx}">
+            <span style="font-size: 0.9rem; color: var(--text-1);">${pp}</span>
+          `;
+          lbl.addEventListener('click', () => {
+            document.querySelectorAll('.painpoint-radio').forEach(r => r.classList.remove('selected'));
+            lbl.classList.add('selected');
+            currentState.painPoint = pp;
+            ui.buttons.generateExisting.disabled = false;
+          });
+          ui.radios.appendChild(lbl);
+        });
+      }
+    } else {
+      currentState.task = null;
+    }
+  });
+}
+
+// ── 결과 렌더링 ──
+function renderExistingResult(taskData) {
+  let html = `<div class="copilot-result fade-in" style="background: rgba(20,20,30,0.8); padding: 24px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); margin-top: 24px;">`;
+  html += `<p style="color:var(--cyan-light); font-size: 0.85rem; font-weight:800; margin-bottom:8px;">[🚀 진단 결과: 맞춤형 자동화 솔루션]</p>`;
+  html += `<h3 style="margin-bottom: 12px; color:white;">${taskData.recommended_template}</h3>`;
+
+  // Pain point 요약
+  if (currentState.painPoint) {
+    html += `<div style="margin-bottom: 16px; padding: 12px; border-left: 3px solid #f87171; background: rgba(248, 113, 113, 0.1);">
+              <p style="font-size: 0.85rem; color: var(--text-2); margin-bottom: 4px;">🎯 해결하려는 핵심 문제</p>
+              <p style="font-size: 0.9rem; font-weight: 500;">"${currentState.painPoint}"</p>
+             </div>`;
   }
 
+  // 프로세스 설명
+  html += `<p style="color:var(--text-1); font-size:0.95rem; margin-bottom: 24px; line-height: 1.6;">${taskData.process}</p>`;
+
+  // 다이어그램 영역 (n8n Output)
+  html += `
+    <div style="background: rgba(0,0,0,0.4); border-radius: 12px; padding: 16px;">
+      <p style="font-size: 0.8rem; color:var(--text-3); margin-bottom: 12px; font-weight: 600;">EXPECTED OUTCOME</p>
+      <div style="background: rgba(6, 182, 212, 0.1); border: 1px dashed rgba(6, 182, 212, 0.4); padding: 16px; border-radius: 8px;">
+        <span style="font-size: 1.2rem; margin-right: 8px;">✨</span>
+        <span style="font-weight: 700; color: var(--cyan-light);">${taskData.n8n_output}</span>
+      </div>
+    </div>
+  `;
+  html += `</div>`;
+  return html;
+}
+
+function renderSoloResult() {
+  let html = `<div class="copilot-result fade-in" style="background: rgba(20,20,30,0.8); padding: 24px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); margin-top: 24px;">`;
+  html += `<p style="color:var(--purple-light); font-size: 0.85rem; font-weight:800; margin-bottom:8px;">[🚀 1인 비즈니스 설계 진단]</p>`;
+  html += `<h3 style="margin-bottom: 12px; color:white;">AI 네이티브 솔로프리너 스택</h3>`;
+  html += `<p style="color:var(--text-2); font-size:0.95rem; margin-bottom: 20px;">입력해주신 자산을 바탕으로 가장 빠르고 효과적인 1인 비즈니스 셋업을 추천합니다.</p>`;
+
   // Antigravity Stack Visualization
+  const stack = ['Antigravity', 'Claude Code', 'Pencil', 'n8n', 'Vercel'];
   html += `
     <div style="background: rgba(0,0,0,0.4); border-radius: 12px; padding: 16px;">
       <p style="font-size: 0.8rem; color:var(--text-3); margin-bottom: 12px; font-weight: 600;">THE ANTIGRAVITY STACK</p>
       <div style="display:flex; flex-wrap:wrap; gap:8px;">
-        ${result.stack.map(s => {
+        ${stack.map(s => {
     const isCore = s.includes('Antigravity');
     const bg = isCore ? 'linear-gradient(45deg, var(--cyan), var(--purple))' : 'rgba(255,255,255,0.1)';
     const color = isCore ? '#fff' : 'var(--text-1)';
@@ -393,60 +546,64 @@ function renderCopilotResult(result) {
   return html;
 }
 
-// 이벤트 핸들링: 진단 트랙 선택 및 결과 생성
+// ── 이벤트 핸들링: 메인 로직 ──
 document.addEventListener('DOMContentLoaded', () => {
-  const btnGenerate = document.getElementById('generate-btn');
-  const area = document.getElementById('diagram-area');
-  const btnTrackExisting = document.getElementById('track-existing');
-  const btnTrackSolo = document.getElementById('track-solo');
-  const inputLabel = document.getElementById('input-label-dynamic');
-  const inputArea = document.getElementById('process-input');
+  // 0. 데이터 로드
+  loadCopilotData();
 
-  let currentTrack = 'solo'; // Default
-
-  // Track selection logic
-  function selectTrack(track) {
-    currentTrack = track;
-    if (track === 'existing') {
-      btnTrackExisting.classList.replace('btn-ghost', 'btn-primary');
-      btnTrackSolo.classList.replace('btn-primary', 'btn-ghost');
-      inputLabel.innerText = '2. 핵심 비즈니스 고민 (병목 구간, 수작업 루틴 등) *';
-      inputArea.placeholder = '예: 매일 들어오는 고객 문의 답변과 영업 리드 관리가 너무 오래 걸립니다.';
-    } else {
-      btnTrackSolo.classList.replace('btn-ghost', 'btn-primary');
-      btnTrackExisting.classList.replace('btn-primary', 'btn-ghost');
-      inputLabel.innerText = '2. 나의 커리어 자산 (직무, 스킬, 이력, 관심사) *';
-      inputArea.placeholder = '예: 7년차 BX 디자이너, 노코드 툴 관심 많음, 전자책 출판 경험 있음';
-    }
-  }
-
-  // Bind click events
-  if (btnTrackExisting) btnTrackExisting.addEventListener('click', () => selectTrack('existing'));
-  if (btnTrackSolo) btnTrackSolo.addEventListener('click', () => selectTrack('solo'));
-
-  // Initialize UI state
-  selectTrack('solo');
-
-  // Generate logic
-  if (btnGenerate && area) {
-    btnGenerate.addEventListener('click', () => {
-      const val = inputArea?.value || '';
-      if (!val.trim()) {
-        area.innerHTML = '<p style="color:#f87171;text-align:center;padding:24px">핵심 키워드를 입력해주세요.</p>';
-        return;
+  // 1. 트랙 선택버튼
+  ui.buttons.trackBtns?.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const track = btn.dataset.track;
+      currentState.track = track;
+      if (track === 'existing') {
+        showStep('industry');
+      } else {
+        showStep('solo');
       }
-
-      btnGenerate.disabled = true;
-      btnGenerate.innerHTML = '<span>분석 중...</span><span class="btn-icon">⏳</span>';
-
-      setTimeout(() => {
-        const res = analyzeCopilot(currentTrack, val);
-        area.innerHTML = renderCopilotResult(res);
-        btnGenerate.disabled = false;
-        btnGenerate.innerHTML = '<span>내 비즈니스 스택 확인하기</span><span class="btn-icon">→</span>';
-      }, 1000);
     });
-  }
+  });
+
+  // 솔로 뒤로가기
+  ui.buttons.backToTrackSolo?.addEventListener('click', () => {
+    showStep('track');
+  });
+
+  // 완료 (Existing)
+  ui.buttons.generateExisting?.addEventListener('click', () => {
+    if (!currentState.task) return;
+    const btn = ui.buttons.generateExisting;
+    btn.disabled = true;
+    btn.innerHTML = '<span>분석 중...</span><span class="btn-icon">⏳</span>';
+
+    setTimeout(() => {
+      ui.placeholder.style.display = 'none';
+      ui.area.style.display = 'block';
+      ui.area.innerHTML = renderExistingResult(currentState.task);
+      btn.disabled = false;
+      btn.innerHTML = '솔루션 진단 완료하기 🚀';
+    }, 800);
+  });
+
+  // 완료 (Solo)
+  ui.buttons.generateSolo?.addEventListener('click', () => {
+    const val = document.getElementById('process-input-solo')?.value || '';
+    if (!val.trim()) {
+      alert('키워드를 입력해주세요.');
+      return;
+    }
+    const btn = ui.buttons.generateSolo;
+    btn.disabled = true;
+    btn.innerHTML = '<span>분석 중...</span><span class="btn-icon">⏳</span>';
+
+    setTimeout(() => {
+      ui.placeholder.style.display = 'none';
+      ui.area.style.display = 'block';
+      ui.area.innerHTML = renderSoloResult();
+      btn.disabled = false;
+      btn.innerHTML = '내 비즈니스 스택 확인하기 🚀';
+    }, 800);
+  });
 });
 
 /* ── 연락처 폼 ── */
