@@ -396,14 +396,14 @@ function initExistingBusinessFlow() {
 
   // 1. 산업 드롭다운 채우기
   ui.selects.industry.innerHTML = '<option value="">산업군 선택</option>';
-  copilotData.existing_business.industries.forEach((ind, idx) => {
-    ui.selects.industry.innerHTML += `<option value="${idx}">${ind.industry_name}</option>`;
+  copilotData.industries.forEach((ind, idx) => {
+    ui.selects.industry.innerHTML += `<option value="${idx}">${ind.name}</option>`;
   });
 
   // 이벤트: 산업 선택 시 -> 카테고리 활성화
   ui.selects.industry.addEventListener('change', (e) => {
     const idx = e.target.value;
-    currentState.industry = idx !== "" ? copilotData.existing_business.industries[idx] : null;
+    currentState.industry = idx !== "" ? copilotData.industries[idx] : null;
     currentState.category = null;
     currentState.task = null;
 
@@ -415,7 +415,7 @@ function initExistingBusinessFlow() {
     if (currentState.industry) {
       ui.selects.category.disabled = false;
       currentState.industry.categories.forEach((cat, cIdx) => {
-        ui.selects.category.innerHTML += `<option value="${cIdx}">${cat.category_name}</option>`;
+        ui.selects.category.innerHTML += `<option value="${cIdx}">${cat.name}</option>`;
       });
     } else {
       ui.selects.category.disabled = true;
@@ -443,7 +443,7 @@ function initExistingBusinessFlow() {
     // Task 드롭다운 채우기
     ui.selects.task.innerHTML = '<option value="">해결하고 싶은 단위 업무 선택</option>';
     currentState.category.tasks.forEach((task, tIdx) => {
-      ui.selects.task.innerHTML += `<option value="${tIdx}">${task.task_name}</option>`;
+      ui.selects.task.innerHTML += `<option value="${tIdx}">${task.name}</option>`;
     });
 
     ui.radios.innerHTML = '';
@@ -466,8 +466,8 @@ function initExistingBusinessFlow() {
       currentState.task = currentState.category.tasks[idx];
 
       // 라디오 버튼 렌더링
-      if (currentState.task.pain_points) {
-        currentState.task.pain_points.forEach((pp, pIdx) => {
+      if (currentState.task.painPoints) {
+        currentState.task.painPoints.forEach((pp, pIdx) => {
           const lbl = document.createElement('label');
           lbl.className = 'painpoint-radio';
           lbl.innerHTML = `
@@ -493,7 +493,7 @@ function initExistingBusinessFlow() {
 function renderExistingResult(taskData) {
   let html = `<div class="copilot-result fade-in" style="background: rgba(20,20,30,0.8); padding: 24px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); margin-top: 24px;">`;
   html += `<p style="color:var(--cyan-light); font-size: 0.85rem; font-weight:800; margin-bottom:8px;">[🚀 진단 결과: 맞춤형 자동화 솔루션]</p>`;
-  html += `<h3 style="margin-bottom: 12px; color:white;">${taskData.recommended_template}</h3>`;
+  html += `<h3 style="margin-bottom: 12px; color:white;">${taskData.recommendedTemplate}</h3>`;
 
   // Pain point 요약
   if (currentState.painPoint) {
