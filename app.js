@@ -145,6 +145,8 @@ function renderBooks(books) {
       tagStyle = 'background: rgba(6,182,212,.15); color: var(--cyan-light); border-color: rgba(6,182,212,.3);';
     } else if (book.themeColor === 'teal') {
       tagStyle = 'background: rgba(16,185,129,.15); color: #6ee7b7; border-color: rgba(16,185,129,.3);';
+    } else if (book.themeColor === 'purple') {
+      tagStyle = 'background: rgba(167,139,250,.15); color: #c4b5fd; border-color: rgba(167,139,250,.3);';
     }
 
     card.innerHTML = `
@@ -160,7 +162,7 @@ function renderBooks(books) {
           ${book.tags.map(t => `<li>${t}</li>`).join('')}
         </ul>
         <div class="book-actions">
-          <a href="${book.link}" target="_blank" class="btn-book ${book.themeColor === 'teal' ? 'btn-book-teal' : ''}">교보문고 바로가기</a>
+          <a href="${book.link}" target="_blank" class="btn-book ${book.themeColor === 'teal' ? 'btn-book-teal' : book.themeColor === 'purple' ? 'btn-book-purple' : ''}">교보문고 바로가기</a>
         </div>
       </div>
     `;
